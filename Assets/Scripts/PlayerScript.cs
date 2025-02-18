@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float coyoteeTime = 0.2f;
     public float jumpBufferTime = 0.3f;
     public float jumpTime;
+    public float gravityModifier;
 
     [Header("Debug")]
     private Rigidbody2D rb;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     private float jumpBufferCounter;
     private bool JustGrounded = true;
     public float jumpTimeCounter;
+    public bool stoppedJumping = true;
 
     [Header("Fields")]
     [SerializeField] private GameObject myBottomParticles;
@@ -53,17 +55,28 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Update()
+    void Jump()
+    {
+        rb.AddForce(transform.up * jump * Time.timeScale);
+    }
+
+    private void Update()
     {
         CanIJump = IsGrounded();
 
         if (CanIJump)
         {
+
             if (!JustGrounded)
             {
+                if (jumpBufferCounter > 0f)
+                {
+                    Jump();
+                }
                 JustGrounded = true;
                 myBottomParticles.SetActive(true);
             }
+
             coyoteeTimeCounter = coyoteeTime;
         }
         else
@@ -71,8 +84,27 @@ public class Player : MonoBehaviour
             JustGrounded = false;
             coyoteeTimeCounter -= Time.deltaTime;
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpTimeCounter = jumpTime;
+        }
+        if (Input.GetKey(KeyCode.Space) && jumpTimeCounter > 0f)
+        {
+            jumpBufferCounter = jumpBufferTime;
+            if (coyoteeTimeCounter > 0f)
+            {
+                jumpTimeCounter -= Time.deltaTime;
+                Jump();
+            }
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+    }
 
-
+    void FixedUpdate()
+    {
         float dirX = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
 
@@ -87,21 +119,10 @@ public class Player : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
-        else
-        {
-        }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
+        if (rb.velocity.y < 0)
         {
-            jumpBufferCounter = jumpBufferTime;
-            if (jumpBufferCounter > 0f && coyoteeTimeCounter > 0f)
-            {
-                rb.AddForce(transform.up * jump * Time.timeScale);
-            }
-        }
-        else
-        {
-            jumpBufferCounter -= Time.deltaTime;
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - gravityModifier);
         }
     }
 }
