@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         float dirX = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(dirX * speed, rb.linearVelocity.y);
 
         if (Mathf.Abs(dirX) > 0.2f)
         {
