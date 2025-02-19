@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     private float jumpBufferCounter;
     private bool JustGrounded = true;
     public float jumpTimeCounter;
-    public bool stoppedJumping = true;
+    public bool startedJumping = true;
 
     [Header("Fields")]
     [SerializeField] private GameObject myBottomParticles;
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        rb.AddForce(transform.up * jump * Time.timeScale);
+        rb.AddForce(transform.up * jump * Time.deltaTime);
     }
 
     private void Update()
@@ -86,12 +86,22 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            jumpTimeCounter = jumpTime;
-        }
-        if (Input.GetKey(KeyCode.Space) && jumpTimeCounter > 0f)
-        {
             jumpBufferCounter = jumpBufferTime;
             if (coyoteeTimeCounter > 0f)
+            {
+                startedJumping = true;
+                Jump();
+            }
+            jumpTimeCounter = jumpTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.Space) && jumpTimeCounter > 0f)
+        {
+            if (startedJumping)
             {
                 jumpTimeCounter -= Time.deltaTime;
                 Jump();
@@ -99,8 +109,9 @@ public class Player : MonoBehaviour
         }
         else
         {
-            jumpBufferCounter -= Time.deltaTime;
+            startedJumping = false;
         }
+
     }
 
     void FixedUpdate()
