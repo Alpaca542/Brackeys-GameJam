@@ -120,9 +120,9 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (rb.velocity.y < 0)
+        if (rb.linearVelocity.y < 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - gravityModifier);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y - gravityModifier);
         }
     }
 }

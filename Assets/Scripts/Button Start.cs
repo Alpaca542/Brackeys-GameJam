@@ -6,7 +6,7 @@ public class MenuButtons : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("start button is clicked");
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("Customization");
     }
 
     // public void OpenSettings()
