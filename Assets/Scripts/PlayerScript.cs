@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        rb.AddForce(transform.up * jump * Time.timeScale);
+        rb.AddForce(transform.up * jump * Time.deltaTime);
     }
 
     private void Update()
