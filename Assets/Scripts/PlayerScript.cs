@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float coyoteeTime = 0.2f;
     public float jumpBufferTime = 0.3f;
     public float jumpTime;
+    public float NewjumpoverTime;
     public float gravityModifier;
 
     [Header("Debug")]
@@ -19,7 +20,8 @@ public class Player : MonoBehaviour
     public LayerMask groundlayer;
     private float coyoteeTimeCounter;
     private float jumpBufferCounter;
-    private bool JustGrounded = true;
+    private bool notGrounded = true;
+    private bool justGrounded = true;
     public float jumpTimeCounter;
     public bool startedJumping = true;
 
@@ -57,40 +59,42 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        rb.AddForce(transform.up * jump * Time.deltaTime);
+        rb.AddForce(transform.up * NewjumpoverTime * Time.deltaTime);
     }
 
     private void Update()
     {
         CanIJump = IsGrounded();
 
-        if (CanIJump)
+        if (IsGrounded())
         {
-
-            if (!JustGrounded)
+            if (notGrounded)
             {
-                if (jumpBufferCounter > 0f)
-                {
-                    Jump();
-                }
-                JustGrounded = true;
+                justGrounded = true;
+                notGrounded = false;
                 myBottomParticles.SetActive(true);
+            }
+            else
+            {
+                justGrounded = false;
             }
 
             coyoteeTimeCounter = coyoteeTime;
         }
         else
         {
-            JustGrounded = false;
+            notGrounded = true;
             coyoteeTimeCounter -= Time.deltaTime;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+
+
+        if (Input.GetKeyDown(KeyCode.Space) || (justGrounded && jumpBufferCounter > 0))
         {
             jumpBufferCounter = jumpBufferTime;
             if (coyoteeTimeCounter > 0f)
             {
                 startedJumping = true;
-                Jump();
+                rb.AddForce(transform.up * jump);
             }
             jumpTimeCounter = jumpTime;
         }
@@ -117,7 +121,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         float dirX = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(dirX * speed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(dirX * speed * Time.fixedDeltaTime, rb.linearVelocity.y);
 
         if (Mathf.Abs(dirX) > 0.2f)
         {
@@ -133,7 +137,7 @@ public class Player : MonoBehaviour
 
         if (rb.linearVelocity.y < 0)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y - gravityModifier);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y - gravityModifier * Time.fixedDeltaTime);
         }
     }
 }

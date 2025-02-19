@@ -298,17 +298,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824e9c1a496634efa8fa2b09d54a6718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jump: 5000
-  coyoteeTime: 0.05
-  jumpBufferTime: 0.3
-  jumpTime: 0.1
+  speed: 400
+  jump: 300
+  coyoteeTime: 0.08
+  jumpBufferTime: 0.2
+  jumpTime: 0.15
+  NewjumpoverTime: 2000
   gravityModifier: 0.01
   groundlayer:
     serializedVersion: 2
     m_Bits: 55
-  jumpTimeCounter: 0
-  startedJumping: 1
+  jumpTimeCounter: 0.15
+  startedJumping: 0
   myBottomParticles: {fileID: 400917358}
   JumpCheck1: {fileID: 1132218654}
   JumpCheck2: {fileID: 690266975}
