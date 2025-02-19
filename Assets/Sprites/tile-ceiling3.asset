@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: tile-ceiling3
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 7566303737216592721, guid: 2b0796733887f4941ac4f94149a03f7a, type: 3}
+  m_Sprite: {fileID: -2448669855630220534, guid: 9cc4cd9c52c5e4b3299cb30d12a7494a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
