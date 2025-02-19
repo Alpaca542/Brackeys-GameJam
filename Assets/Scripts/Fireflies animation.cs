@@ -36,7 +36,6 @@ public class FirefliesFlicker : MonoBehaviour
     {
         while (true)
         {
-           
             float pauseTime = Random.Range(minPauseTime, maxPauseTime);
             yield return new WaitForSeconds(pauseTime);
 
@@ -61,15 +60,15 @@ public class FirefliesFlicker : MonoBehaviour
             Color newColor = spriteRenderer.color;
             newColor.a = alpha;
             spriteRenderer.color = newColor;
-
+            float step = 0f;
             float delay = Random.Range(flickerDelayMin, flickerDelayMax);
-            yield return new WaitForSeconds(delay);
-        }
-    }
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(startPosition, moveRadius);
+            while (step < 1f)
+            {
+                step += Time.deltaTime * moveSpeed;
+                transform.position = Vector3.Lerp(transform.position, targetPosition, step);
+                yield return null;
+            }
+        }
     }
 }
