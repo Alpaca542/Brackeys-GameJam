@@ -100,72 +100,6 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   multiSpriteImportData: []
   layeredSpriteImportData:
-  - name: tile-ladder-left
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 1569
-      y: 929
-      width: 502
-      height: 509
-    spriteID: 672f3247c1e734e0cb71b4f9cc60d3ee
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 1569, y: 929}
-    spritePosition: {x: 2916, y: 305}
-  - name: tile-ladder-right
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 1047
-      y: 929
-      width: 514
-      height: 509
-    spriteID: dba59296421bd4cc9bc8ab27be94c75a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 1047, y: 929}
-    spritePosition: {x: 2409, y: 305}
-  - name: tile-floor1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 3274
-      y: 4
-      width: 512
-      height: 512
-    spriteID: 5b29de00c448749ba9316b95394e85be
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 3274, y: 4}
-    spritePosition: {x: 1387, y: 306}
   - name: tile-corner
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -174,7 +108,7 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 1856
+      x: 4
       y: 4
       width: 512
       height: 512
@@ -186,184 +120,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 1856, y: 4}
+    uvTransform: {x: 4, y: 4}
     spritePosition: {x: 370, y: 304}
-  - name: tile-floor2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 527
-      y: 929
-      width: 512
-      height: 512
-    spriteID: 40ec168d0954141a4810d4c75df4667f
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 527, y: 929}
-    spritePosition: {x: 878, y: 305}
-  - name: tile-ceiling3
-    originalName: 
-    pivot: {x: 0.5, y: 1}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 1857
-      y: 554
-      width: 512
-      height: 256
-    spriteID: 13502ef5c987843cda5cc718731bdaaf
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 1856, y: 524}
-    spritePosition: {x: 2010, y: 1699}
-  - name: tile-ceiling2
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 2383
-      y: 541
-      width: 512
-      height: 268
-    spriteID: 95fedd840792244268c1a2ee6c6b3516
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 2381, y: 524}
-    spritePosition: {x: 1436, y: 1698}
-  - name: tile-ceiling1
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 3276
-      y: 530
-      width: 512
-      height: 294
-    spriteID: 978626cc69c4a4494b0c5cdf368d29c8
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 3274, y: 528}
-    spritePosition: {x: 887, y: 1685}
-  - name: tile-floor3
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 929
-      width: 515
-      height: 512
-    spriteID: 3cabaf327c0c643cd858f63dc7fa4c53
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 929}
-    spritePosition: {x: 1895, y: 308}
-  - name: loc_walls_0
-    originalName: 
-    pivot: {x: 0.63566226, y: 0.3852076}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 1269
-      y: 1456
-      width: 55
-      height: 195
-    spriteID: 0add26229afb74cb5a6404f6ed145b8a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 1269, y: 1456}
-    spritePosition: {x: 0, y: 0}
-  - name: loc_walls_1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 932
-      y: 3
-      width: 916
-      height: 918
-    spriteID: 8bf5bf5c5068c409ab3ccee8237dfb2d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 932, y: 3}
-    spritePosition: {x: 0, y: 0}
-  - name: loc_walls_2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 3
-      y: 6
-      width: 919
-      height: 914
-    spriteID: 9c521df2ad5754748b9845d9632508bf
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 3, y: 6}
-    spritePosition: {x: 0, y: 0}
   spriteImportData: []
   rigSpriteImportData: []
   sharedRigSpriteImportData: []
@@ -569,8 +327,8 @@ ScriptedImporter:
     layerID: 1458297541
     mosaicPosition: {x: 1569, y: 929}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: tile-ladder-right
     spriteName: tile-ladder-right
     isGroup: 0
@@ -579,8 +337,8 @@ ScriptedImporter:
     layerID: -163319250
     mosaicPosition: {x: 1047, y: 929}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: tile-floor1
     spriteName: tile-floor1
     isGroup: 0
@@ -589,15 +347,15 @@ ScriptedImporter:
     layerID: 858890684
     mosaicPosition: {x: 3274, y: 4}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: tile-corner
     spriteName: tile-corner
     isGroup: 0
     parentIndex: -1
     spriteID: 9603ae989f43845f3937da44c8e16dc2
     layerID: 1422626356
-    mosaicPosition: {x: 1856, y: 4}
+    mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -609,8 +367,8 @@ ScriptedImporter:
     layerID: 858890683
     mosaicPosition: {x: 527, y: 929}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: tile-ceiling3
     spriteName: tile-ceiling3
     isGroup: 0
@@ -619,8 +377,8 @@ ScriptedImporter:
     layerID: -499512731
     mosaicPosition: {x: 1856, y: 524}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: tile-ceiling2
     spriteName: tile-ceiling2
     isGroup: 0
@@ -629,8 +387,8 @@ ScriptedImporter:
     layerID: -499512730
     mosaicPosition: {x: 2381, y: 524}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: tile-ceiling1
     spriteName: tile-ceiling1
     isGroup: 0
@@ -639,8 +397,8 @@ ScriptedImporter:
     layerID: -499512729
     mosaicPosition: {x: 3274, y: 528}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: tile-floor3
     spriteName: tile-floor3
     isGroup: 0
@@ -649,8 +407,8 @@ ScriptedImporter:
     layerID: 858890682
     mosaicPosition: {x: 4, y: 929}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: web-bg3
     spriteName: 
     isGroup: 0
@@ -769,8 +527,8 @@ ScriptedImporter:
     layerID: 508770092
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: texture2
     spriteName: texture2
     isGroup: 0
@@ -779,8 +537,8 @@ ScriptedImporter:
     layerID: 105485565
     mosaicPosition: {x: 930, y: 4}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: bg
     spriteName: bg
     isGroup: 0
