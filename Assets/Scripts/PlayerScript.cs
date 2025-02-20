@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     [Header("Debug")]
     private Rigidbody2D rb;
-    private Animator anim;
+    public Animator anim;
     private bool CanIJump = false;
     public LayerMask groundlayer;
     private float coyoteeTimeCounter;
@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
     }
 
     private void OnDisable()
