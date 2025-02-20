@@ -3,18 +3,22 @@ using System.Collections;
 public class FirefliesFlicker : MonoBehaviour
 {
     [Header("setting movenment")]
-    [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private float moveSpeedMax = 1f;
     [SerializeField] private float minPauseTime = 0.5f;
     [SerializeField] private float maxPauseTime = 2f;
     [SerializeField] private float moveRadius = 0.5f;
+    public Transform startPos;
+    public Transform endPos;
 
     [Header("setting flicker")]
     [SerializeField] private float minIntensity = 0.5f;
     [SerializeField] private float maxIntensity = 1.5f;
     [SerializeField] private float flickerDelayMin = 0.1f;
     [SerializeField] private float flickerDelayMax = 0.5f;
-    private Vector3 startPosition;
-    private Vector3 targetPosition;
+    [SerializeField] private float flickerSpeedMax = 1f;
+    private Vector2 startPosition;
+    private Vector2 targetPosition;
+    private float targetalpha;
     private SpriteRenderer spriteRenderer;
 
     void Start()
@@ -32,43 +36,57 @@ public class FirefliesFlicker : MonoBehaviour
         StartCoroutine(UpdateFlicker());
     }
 
-    IEnumerator UpdateMovement()
-    {
+IEnumerator UpdateMovement()
+{
         while (true)
         {
-            float pauseTime = Random.Range(minPauseTime, maxPauseTime);
-            yield return new WaitForSeconds(pauseTime);
-
-            targetPosition = startPosition + (Random.insideUnitSphere * moveRadius);
-            targetPosition.z = 0;
+            targetPosition = new Vector2(Random.Range(startPos.position.x, endPos.position.x), Random.Range(startPos.position.y, endPos.position.y));
 
             float step = 0f;
-            while (step < 1f)
+            float moveSpeed = Random.Range(1f, moveSpeedMax);
+            float startTime = Time.time;
+            float journeyLength = Vector3.Distance(transform.position, targetPosition);
+            Vector2 startpos = transform.position;
+            float fractionOfJourney = 0;
+
+            while (fractionOfJourney < 1f)
             {
+                float distCovered = (Time.time - startTime) * moveSpeed;
+                fractionOfJourney = distCovered / journeyLength;
                 step += Time.deltaTime * moveSpeed;
-                transform.position = Vector3.Lerp(transform.position, targetPosition, step);
+                transform.position = Vector3.Lerp(startpos, targetPosition, fractionOfJourney);
                 yield return null;
             }
-        }
+            float pauseTime = Random.Range(minPauseTime, maxPauseTime);
+            yield return new WaitForSeconds(pauseTime);
     }
+}
+
 
     IEnumerator UpdateFlicker()
     {
         while (true)
-        {
-            float alpha = Random.Range(minIntensity, maxIntensity);
-            Color newColor = spriteRenderer.color;
-            newColor.a = alpha;
-            spriteRenderer.color = newColor;
+        {            
+            targetalpha = Random.Range(0f, 1f);
+            float myalpha = GetComponent<SpriteRenderer>().color.a;
+            Debug.Log(myalpha);
+            Debug.Log(targetalpha);
             float step = 0f;
-            float delay = Random.Range(flickerDelayMin, flickerDelayMax);
+            float flickerSpeed = Random.Range(0.1f, flickerSpeedMax);
+            float startTime = Time.time;
+            float journeyLength = Mathf.Abs(targetalpha-myalpha);
+            float fractionOfJourney = 0;
 
-            while (step < 1f)
+            while (fractionOfJourney < 1f)
             {
-                step += Time.deltaTime * moveSpeed;
-                transform.position = Vector3.Lerp(transform.position, targetPosition, step);
+                float distCovered = (Time.time - startTime) * flickerSpeed;
+                fractionOfJourney = distCovered / journeyLength;
+                step += Time.deltaTime * flickerSpeed;
+                GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, (byte) (Mathf.Lerp(myalpha, targetalpha, fractionOfJourney)*255));
                 yield return null;
             }
+            float pauseTime = Random.Range(minPauseTime, maxPauseTime);
+            yield return new WaitForSeconds(pauseTime);
         }
     }
 }
