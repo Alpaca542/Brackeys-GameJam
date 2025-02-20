@@ -9,6 +9,7 @@ public class FirefliesFlicker : MonoBehaviour
     [SerializeField] private float moveRadius = 0.5f;
     public Transform startPos;
     public Transform endPos;
+    public bool shouldFlick;
 
     [Header("setting flicker")]
     [SerializeField] private float minIntensity = 0.5f;
@@ -33,7 +34,10 @@ public class FirefliesFlicker : MonoBehaviour
         }
 
         StartCoroutine(UpdateMovement());
-        StartCoroutine(UpdateFlicker());
+        if (shouldFlick)
+        {
+            StartCoroutine(UpdateFlicker());
+        }
     }
 
 IEnumerator UpdateMovement()
@@ -43,7 +47,7 @@ IEnumerator UpdateMovement()
             targetPosition = new Vector2(Random.Range(startPos.position.x, endPos.position.x), Random.Range(startPos.position.y, endPos.position.y));
 
             float step = 0f;
-            float moveSpeed = Random.Range(1f, moveSpeedMax);
+            float moveSpeed = Random.Range(0f, moveSpeedMax);
             float startTime = Time.time;
             float journeyLength = Vector3.Distance(transform.position, targetPosition);
             Vector2 startpos = transform.position;
