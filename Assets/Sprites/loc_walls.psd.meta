@@ -298,6 +298,72 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 929}
     spritePosition: {x: 1895, y: 308}
+  - name: loc_walls_0
+    originalName: 
+    pivot: {x: 0.63566226, y: 0.3852076}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 1269
+      y: 1456
+      width: 55
+      height: 195
+    spriteID: 0add26229afb74cb5a6404f6ed145b8a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1269, y: 1456}
+    spritePosition: {x: 0, y: 0}
+  - name: loc_walls_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 932
+      y: 3
+      width: 916
+      height: 918
+    spriteID: 8bf5bf5c5068c409ab3ccee8237dfb2d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 932, y: 3}
+    spritePosition: {x: 0, y: 0}
+  - name: loc_walls_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 3
+      y: 6
+      width: 919
+      height: 914
+    spriteID: 9c521df2ad5754748b9845d9632508bf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3, y: 6}
+    spritePosition: {x: 0, y: 0}
   spriteImportData: []
   rigSpriteImportData: []
   sharedRigSpriteImportData: []

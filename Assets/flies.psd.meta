@@ -218,6 +218,45 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: VisionOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -960,7 +999,40 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      flies_0: -2485530372119472214
+      flies_1: 2343013938220434331
+      flies_10: -3082537418467873175
+      flies_11: -2205957217547688821
+      flies_12: 8196281131176000501
+      flies_13: 4815740122258644362
+      flies_14: 2860250298969965510
+      flies_15: -87135527879109733
+      flies_16: -782115990321175242
+      flies_17: 4407680862724935476
+      flies_18: -1693869862884795579
+      flies_19: -8983995336902310352
+      flies_2: -980439996231179269
+      flies_20: 7311043449649666022
+      flies_21: 8297503044890002557
+      flies_22: 2468038718107481433
+      flies_23: 8113305248036444174
+      flies_24: 634886730485821801
+      flies_25: -4699132327347403726
+      flies_26: 6717470244590283016
+      flies_27: -4291349679083853166
+      flies_28: 5895808841901603461
+      flies_29: -1119210013905470979
+      flies_3: -5274308283100216556
+      flies_30: -690579944439276215
+      flies_31: -7247131018294526163
+      flies_32: -7823335130336833921
+      flies_4: 6438001018071497435
+      flies_5: 5337120374794860102
+      flies_6: -2401793801296464996
+      flies_7: 7996163356053674156
+      flies_8: -688671961556597040
+      flies_9: 4228111917377453661
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
