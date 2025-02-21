@@ -78,8 +78,8 @@ Material:
     - _Cutoff: 0.5
     - _DstBlend: 10
     - _DstBlendAlpha: 10
-    - _EdgeSmoothness: 3.06
-    - _ExclusionRadius: 0.48
+    - _EdgeSmoothness: 1.4
+    - _ExclusionRadius: 0.93
     - _FxBlend: 0.573
     - _KMul: 1
     - _QueueOffset: 0

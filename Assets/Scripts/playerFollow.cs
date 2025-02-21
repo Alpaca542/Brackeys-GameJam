@@ -15,6 +15,6 @@ public class playerFollow : MonoBehaviour
     {
         playerVector = player.position;
         playerVector.z = -10;
-        transform.position = Vector3.Lerp(transform.position, playerVector, speed * Time.fixedDeltaTime);
+        transform.position = Vector3.Lerp(transform.position, playerVector, speed * Time.deltaTime);
     }
 }
