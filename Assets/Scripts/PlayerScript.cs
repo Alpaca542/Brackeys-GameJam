@@ -133,8 +133,19 @@ public class Player : MonoBehaviour
         {
             startedJumping = false;
         }
+        AnimateMe();
     }
-
+    void AnimateMe()
+    {
+        if (Mathf.Abs(rb.linearVelocity.x) > 0f)
+        {
+            anim.SetBool("AmIWalking", true);
+        }
+        else
+        {
+            anim.SetBool("AmIWalking", false);
+        }
+    }
     void FixedUpdate()
     {
         float dirX = Input.GetAxis("Horizontal");
