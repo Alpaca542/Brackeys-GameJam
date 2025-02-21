@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
 {
@@ -149,6 +150,12 @@ public class Player : MonoBehaviour
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
+        }
+
+        foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaled"))
+        {
+            gm.GetComponent<TilemapRenderer>().material.SetVector("_PlayerPosition", transform.position);
+
         }
 
         // Apply extra gravity when falling for better feel
