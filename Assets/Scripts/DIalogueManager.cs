@@ -10,16 +10,11 @@ using TMPro;
 public class DialogueScript : MonoBehaviour
 {
     public bool StopTime;
-    private float savedOrthoSize;
     public TMP_Text Display;
     public Image Display2;
     public string[] sentences;
     public bool ShouldIStopAfterpb;
     public bool noPlayer;
-    public Animation startAnim;
-    public AnimationClip startAnim2;
-    public AnimationClip startAnim3;
-    public AnimationClip startAnim4;
     public Sprite[] faces;
     public int[] stopindexes = { 7 };
     public int IndexInMain;
@@ -27,7 +22,6 @@ public class DialogueScript : MonoBehaviour
     public GameObject btnContinue;
     public GameObject cnv;
     public GameObject cnvInGame;
-    public GameObject cnvInGame2;
     public GameObject btnContinueFake;
     public float typingspeed = 0.02f;
     IEnumerator coroutine;
@@ -43,7 +37,6 @@ public class DialogueScript : MonoBehaviour
         else
         {
             cnvInGame.SetActive(true);
-            cnvInGame2.SetActive(true);
             btnContinue.SetActive(false);
             cnv.SetActive(false);
             IndexInMain = stopindexes[0];
@@ -51,7 +44,6 @@ public class DialogueScript : MonoBehaviour
     }
     public void StartCrtnRemotely(string WhatToType, Sprite WhatToShow, bool ShouldIStopAfter, float savedOrthoSize1)
     {
-        savedOrthoSize = savedOrthoSize1;
         if (coroutine != null)
         {
             StopCoroutine(coroutine);
@@ -79,7 +71,6 @@ public class DialogueScript : MonoBehaviour
 
         cnv.SetActive(true);
         cnvInGame.SetActive(false);
-        cnvInGame2.SetActive(false);
         btnContinue.SetActive(false);
         btnContinueFake.SetActive(false);
         Display.text = "";
@@ -119,9 +110,8 @@ public class DialogueScript : MonoBehaviour
             btnContinue.SetActive(true);
         }
     }
-    public void StartMainLine(float orthosize)
+    public void StartMainLine()
     {
-        savedOrthoSize = orthosize;
         coroutine = Type(sentences[IndexInMain], faces[IndexInMain], false);
         StartCoroutine(coroutine);
     }
@@ -139,26 +129,9 @@ public class DialogueScript : MonoBehaviour
             {
                 if (noPlayer)
                 {
-                    if (IndexInMain == stopindexes[0])
-                    {
-                        startAnim.clip = startAnim2;
-                        startAnim.Play();
-                    }
-                    else if (IndexInMain == stopindexes[1])
-                    {
-                        startAnim.clip = startAnim3;
-                        startAnim.Play();
-                    }
-                    else if (IndexInMain == stopindexes[2])
-                    {
-                        startAnim.clip = startAnim4;
-                        startAnim.Play();
-                    }
                     cnvInGame.SetActive(true);
-                    cnvInGame2.SetActive(true);
                     btnContinue.SetActive(false);
                     cnv.SetActive(false);
-                    savedOrthoSize = 0;
                 }
                 else
                 {
@@ -167,10 +140,8 @@ public class DialogueScript : MonoBehaviour
                         Time.timeScale = 1f;
                     }
                     cnvInGame.SetActive(true);
-                    cnvInGame2.SetActive(true);
                     btnContinue.SetActive(false);
                     cnv.SetActive(false);
-                    savedOrthoSize = 0;
 
                     if (IndexInMain == stopindexes[0])
                     {
@@ -188,18 +159,14 @@ public class DialogueScript : MonoBehaviour
             Time.timeScale = 1f;
         }
         cnvInGame.SetActive(true);
-        cnvInGame2.SetActive(true);
         btnContinue.SetActive(false);
         cnv.SetActive(false);
         Camera.main.transform.parent.GetComponent<playerFollow>().enabled = true;
-        Camera.main.DOOrthoSize(savedOrthoSize, 0.5f).SetUpdate(true);
     }
     private void Update()
     {
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) && cnv.activeSelf)
         {
-            //gameObject.GetComponent<soundManager>().sound.loop = false;
-            //GetComponent<AudioSource>().Stop();
             StopCoroutine(coroutine);
             GetComponent<AudioSource>().loop = false;
             if (Display.text == Stringpb)

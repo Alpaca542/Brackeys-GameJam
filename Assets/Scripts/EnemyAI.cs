@@ -80,7 +80,7 @@ public class EnemyAI : MonoBehaviour
 
         if (shouldAttack && canAttack)
         {
-            player.gameObject.GetComponent<Player>().hit();
+            player.gameObject.GetComponent<Player>().Hit();
             canAttack = false;
             StartCoroutine(attackCrtn());
         }

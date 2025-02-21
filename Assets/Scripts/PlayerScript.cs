@@ -6,23 +6,23 @@ public class Player : MonoBehaviour
 {
     [Header("Stats")]
     public float speed;
-    public float jump = 1;
-    public float coyoteeTime = 0.2f;
+    public float jump = 10f; // Increased for better responsiveness
+    public float coyoteTime = 0.2f;
     public float jumpBufferTime = 0.3f;
     public float jumpTime;
-    public float gravityModifier;
+    public float gravityModifier = 2.5f;
     public float HealSpeed;
 
     [Header("Debug")]
     private Rigidbody2D rb;
     public Animator anim;
-    private bool CanIJump = false;
+    private bool canJump = false;
     public LayerMask groundlayer;
-    private float coyoteeTimeCounter;
+    private float coyoteTimeCounter;
     private float jumpBufferCounter;
-    private bool JustGrounded = true;
+    private bool justGrounded = true;
     public float jumpTimeCounter;
-    public bool startedJumping = true;
+    public bool startedJumping = false;
     public float damaged;
 
     [Header("Fields")]
@@ -33,7 +33,6 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform JumpCheck2;
     [SerializeField] private Transform JumpCheck3;
 
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,22 +42,23 @@ public class Player : MonoBehaviour
     {
         anim.SetBool("AmIWalking", false);
     }
-    public IEnumerator regen()
+
+    public IEnumerator Regen()
     {
         while (damaged > 0)
         {
-            //effect
             damaged -= Time.deltaTime * HealSpeed;
             yield return null;
         }
         damaged = 0;
     }
-    public void hit()
+
+    public void Hit()
     {
         if (damaged <= 0)
         {
             damaged++;
-            StartCoroutine(regen());
+            StartCoroutine(Regen());
         }
         else
         {
@@ -68,73 +68,70 @@ public class Player : MonoBehaviour
 
     private bool IsGrounded()
     {
-        if (Physics2D.Raycast(JumpCheck1.position, -transform.up, 0.1f, groundlayer) || Physics2D.Raycast(JumpCheck2.position, -transform.up, 0.1f, groundlayer) || Physics2D.Raycast(JumpCheck3.position, -transform.up, 0.1f, groundlayer))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return Physics2D.Raycast(JumpCheck1.position, Vector2.down, 0.1f, groundlayer) ||
+               Physics2D.Raycast(JumpCheck2.position, Vector2.down, 0.1f, groundlayer) ||
+               Physics2D.Raycast(JumpCheck3.position, Vector2.down, 0.1f, groundlayer);
     }
 
     void Jump()
     {
-        rb.AddForce(transform.up * jump * Time.deltaTime);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jump);
     }
 
     private void Update()
     {
-        CanIJump = IsGrounded();
+        canJump = IsGrounded();
 
-        if (CanIJump)
+        if (canJump)
         {
-
-            if (!JustGrounded)
+            if (!justGrounded)
             {
                 if (jumpBufferCounter > 0f)
                 {
                     Jump();
+                    jumpBufferCounter = 0f; // Reset buffer after using it
                 }
-                JustGrounded = true;
-                myBottomParticles.SetActive(true);
+                justGrounded = true;
+                Instantiate(myBottomParticles, JumpCheck2.transform.position, Quaternion.identity);
             }
 
-            coyoteeTimeCounter = coyoteeTime;
+            coyoteTimeCounter = coyoteTime;
         }
         else
         {
-            JustGrounded = false;
-            coyoteeTimeCounter -= Time.deltaTime;
+            justGrounded = false;
+            coyoteTimeCounter -= Time.deltaTime;
         }
+
+        // Jump Buffering
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpBufferCounter = jumpBufferTime;
-            if (coyoteeTimeCounter > 0f)
-            {
-                startedJumping = true;
-                Jump();
-            }
+        }
+
+        if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f)
+        {
+            startedJumping = true;
+            Jump();
+            jumpBufferCounter = 0f; // Reset after successful jump
             jumpTimeCounter = jumpTime;
         }
-        else
+
+        if (jumpBufferCounter > 0f)
         {
             jumpBufferCounter -= Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.Space) && jumpTimeCounter > 0f)
+        // Hold Space for variable jump height
+        if (Input.GetKey(KeyCode.Space) && jumpTimeCounter > 0f && startedJumping)
         {
-            if (startedJumping)
-            {
-                jumpTimeCounter -= Time.deltaTime;
-                Jump();
-            }
+            jumpTimeCounter -= Time.deltaTime;
+            Jump();
         }
         else
         {
             startedJumping = false;
         }
-
     }
 
     void FixedUpdate()
@@ -154,9 +151,10 @@ public class Player : MonoBehaviour
             }
         }
 
+        // Apply extra gravity when falling for better feel
         if (rb.linearVelocity.y < 0)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y - gravityModifier);
+            rb.linearVelocity += Vector2.up * gravityModifier * Time.fixedDeltaTime;
         }
     }
 }
