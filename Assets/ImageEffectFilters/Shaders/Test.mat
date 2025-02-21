@@ -79,7 +79,7 @@ Material:
     - _DstBlend: 10
     - _DstBlendAlpha: 10
     - _EdgeSmoothness: 1.4
-    - _ExclusionRadius: 0.93
+    - _ExclusionRadius: 1.9
     - _FxBlend: 0.573
     - _KMul: 1
     - _QueueOffset: 0

@@ -155,7 +155,10 @@ public class Player : MonoBehaviour
         foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaled"))
         {
             gm.GetComponent<TilemapRenderer>().material.SetVector("_PlayerPosition", transform.position);
-
+        }
+        foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaledObj"))
+        {
+            gm.GetComponent<SpriteRenderer>().material.SetVector("_PlayerPosition", transform.position);
         }
 
         // Apply extra gravity when falling for better feel

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DialogueMng
   - GreyScaled
+  - GreyScaledObj
   layers:
   - Default
   - TransparentFX
