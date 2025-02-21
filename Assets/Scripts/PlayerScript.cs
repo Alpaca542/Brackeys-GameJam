@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float jumpBufferTime = 0.3f;
     public float jumpTime;
     public float gravityModifier;
+    public float HealSpeed;
 
     [Header("Debug")]
     private Rigidbody2D rb;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     private bool JustGrounded = true;
     public float jumpTimeCounter;
     public bool startedJumping = true;
+    public float damaged;
 
     [Header("Fields")]
     [SerializeField] private GameObject myBottomParticles;
@@ -40,6 +42,28 @@ public class Player : MonoBehaviour
     private void OnDisable()
     {
         anim.SetBool("AmIWalking", false);
+    }
+    public IEnumerator regen()
+    {
+        while (damaged > 0)
+        {
+            //effect
+            damaged -= Time.deltaTime * HealSpeed;
+            yield return null;
+        }
+        damaged = 0;
+    }
+    public void hit()
+    {
+        if (damaged <= 0)
+        {
+            damaged++;
+            StartCoroutine(regen());
+        }
+        else
+        {
+            damaged++;
+        }
     }
 
     private bool IsGrounded()
