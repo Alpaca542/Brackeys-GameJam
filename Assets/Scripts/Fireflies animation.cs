@@ -73,8 +73,6 @@ IEnumerator UpdateMovement()
         {            
             targetalpha = Random.Range(0f, 1f);
             float myalpha = GetComponent<SpriteRenderer>().color.a;
-            Debug.Log(myalpha);
-            Debug.Log(targetalpha);
             float step = 0f;
             float flickerSpeed = Random.Range(0.1f, flickerSpeedMax);
             float startTime = Time.time;
