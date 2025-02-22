@@ -15,7 +15,7 @@ public class DialogueScript : MonoBehaviour
     public string[] sentences;
     public bool ShouldIStopAfterpb;
     public bool noPlayer;
-    public Sprite[] faces;
+    public GameObject[] faces;
     public int[] stopindexes = { 7 };
     public int IndexInMain;
     public string Stringpb;
@@ -42,7 +42,7 @@ public class DialogueScript : MonoBehaviour
             IndexInMain = stopindexes[0];
         }
     }
-    public void StartCrtnRemotely(string WhatToType, Sprite WhatToShow, bool ShouldIStopAfter, float savedOrthoSize1)
+    public void StartCrtnRemotely(string WhatToType, GameObject WhatToShow, bool ShouldIStopAfter, float savedOrthoSize1)
     {
         if (coroutine != null)
         {
@@ -51,7 +51,7 @@ public class DialogueScript : MonoBehaviour
         coroutine = Type(WhatToType, WhatToShow, ShouldIStopAfter);
         StartCoroutine(coroutine);
     }
-    public IEnumerator Type(string WhatToType, Sprite WhatToShow, bool ShouldIStopAfter)
+    public IEnumerator Type(string WhatToType, GameObject WhatToShow, bool ShouldIStopAfter)
     {
         GetComponent<AudioSource>().loop = true;
         GetComponent<AudioSource>().Play();
@@ -74,22 +74,7 @@ public class DialogueScript : MonoBehaviour
         btnContinue.SetActive(false);
         btnContinueFake.SetActive(false);
         Display.text = "";
-        if (WhatToShow.name == "laptop (1)_4")
-        {
-            Display2.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1033f, 1535f);
-            Display2.gameObject.GetComponent<RectTransform>().localScale = new Vector2(0.7f, 0.7f);
-        }
-        else if (WhatToShow.name == "dog(0))")
-        {
-            Display2.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(787f, 1135f);
-            Display2.gameObject.GetComponent<RectTransform>().localScale = new Vector2(0.8f, 0.8f);
-        }
-        else
-        {
-            Display2.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(559f, 1259f);
-            Display2.gameObject.GetComponent<RectTransform>().localScale = new Vector2(1f, 1f);
-        }
-        Display2.sprite = WhatToShow;
+        WhatToShow.SetActive(true);
         foreach (char letter1 in WhatToType.ToCharArray())
         {
             Display.text += letter1;
