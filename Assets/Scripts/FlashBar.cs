@@ -14,11 +14,11 @@ public class FlashBar : MonoBehaviour
     public float shakeAmount = 0.1f;
     public float shakeSpeed = 10f;
     private Vector3 originalPosition;
-    public float rate;
+    public float rate = 2f;
     public float curHealth;
 
     public bool decreasing;
-
+    public float regenSpeed = 10f;
 
     void Update()
     {
@@ -32,11 +32,23 @@ public class FlashBar : MonoBehaviour
             Debug.Log(2);
             DecreaseStop();
         }
+        if (!decreasing)
+        {
+            if (curHealth < max)
+            {
+                curHealth += Time.deltaTime * regenSpeed;
+                SetHealth(curHealth);
+            }
+            else
+            {
+                curHealth = max;
+            }
+        }
     }
 
     public void SetHealth(float health)
     {
-        fill.GetComponent<RectTransform>().sizeDelta = new Vector2((health / max) * 961f, fill.GetComponent<RectTransform>().sizeDelta.y);
+        fill.GetComponent<RectTransform>().localScale = new Vector2((health / max), 1);
 
     }
 
@@ -49,16 +61,21 @@ public class FlashBar : MonoBehaviour
     {
         crtn = Shake();
         StartCoroutine(crtn);
+        decreasing = true;
     }
 
     public void DecreaseStop()
     {
         StopCoroutine(crtn);
+        playerLight.GetComponent<Playerlight>().StopShining();
+        GetComponent<RectTransform>().localPosition = originalPosition;
+        decreasing = false;
     }
 
     public IEnumerator Shake()
     {
-        originalPosition = GetComponent<RectTransform>().position;
+        playerLight.GetComponent<Playerlight>().StartShining();
+        originalPosition = GetComponent<RectTransform>().localPosition;
         while (curHealth >= 0)
         {
             curHealth -= rate * Time.deltaTime;
@@ -67,11 +84,11 @@ public class FlashBar : MonoBehaviour
                 Mathf.PerlinNoise(Time.time * shakeSpeed, 0) * 2 - 1,
                 Mathf.PerlinNoise(0, Time.time * shakeSpeed) * 2 - 1,
                 0) * shakeAmount;
-            GetComponent<RectTransform>().position = originalPosition + offset;
+            GetComponent<RectTransform>().localPosition = originalPosition + offset;
             yield return null;
         }
         curHealth = 0;
-        //playerLight.GetComponent<Playerlight>().Stop();
+        playerLight.GetComponent<Playerlight>().StopShining();
+        GetComponent<RectTransform>().localPosition = originalPosition;
     }
-
 }

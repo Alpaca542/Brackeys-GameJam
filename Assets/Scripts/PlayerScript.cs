@@ -65,6 +65,10 @@ public class Player : MonoBehaviour
         {
             damaged++;
         }
+        if (damaged > 2)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private bool IsGrounded()
@@ -182,6 +186,13 @@ public class Player : MonoBehaviour
         {
             gm.GetComponent<SpriteRenderer>().material.SetVector("_PlayerPosition", transform.position);
         }
+        // foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaledEnem"))
+        // {
+        //     foreach (SpriteRenderer rnd in gm.GetComponent<EnemyAI>().listSpr)
+        //     {
+        //         rnd.material.SetVector("_PlayerPosition", transform.position);
+        //     }
+        // }
 
         // Apply extra gravity when falling for better feel
         if (rb.linearVelocity.y < 0)
