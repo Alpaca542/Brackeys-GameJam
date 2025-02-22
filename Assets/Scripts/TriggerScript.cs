@@ -2,15 +2,29 @@ using UnityEngine;
 
 public class TriggerScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public SpriteRenderer mySpriteRen;
+    public Sprite[] spriteSteps;
+    public int curStep;
+    private MemoryManager memManager;
+    private DialogueScript dialogueManager;
+
     void Start()
     {
-        
+        memManager = GameObject.FindGameObjectWithTag("MemManager").GetComponent<MemoryManager>();
+        dialogueManager = GameObject.FindGameObjectWithTag("DialogueMngr").GetComponent<DialogueScript>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if (memManager.step != curStep)
+        {
+            curStep = memManager.step;
+            mySpriteRen.sprite = spriteSteps[curStep];
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        memManager.step++;
+        dialogueManager.StartMainLine();
     }
 }

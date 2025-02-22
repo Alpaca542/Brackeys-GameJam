@@ -45,7 +45,7 @@ public class EnemyAI : MonoBehaviour
             enabled = false;
             return;
         }
-        InvokeRepeating(nameof(InvokeJump), 1.5f, 1.5f);
+        InvokeRepeating(nameof(InvokeJump), 2f, 2f);
     }
 
     private bool IsGrounded()

@@ -8,6 +8,7 @@ TagManager:
   - GreyScaled
   - GreyScaledObj
   - Monster
+  - MemManager
   layers:
   - Default
   - TransparentFX
