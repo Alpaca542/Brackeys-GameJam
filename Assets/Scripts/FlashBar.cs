@@ -54,10 +54,14 @@ public class FlashBar : MonoBehaviour
     public void DecreaseStop()
     {
         StopCoroutine(crtn);
+        curHealth = 0;
+        playerLight.GetComponent<Playerlight>().StopShining();
+        GetComponent<RectTransform>().position = originalPosition;
     }
 
     public IEnumerator Shake()
     {
+        playerLight.GetComponent<Playerlight>().StartShining();
         originalPosition = GetComponent<RectTransform>().position;
         while (curHealth >= 0)
         {
@@ -70,8 +74,6 @@ public class FlashBar : MonoBehaviour
             GetComponent<RectTransform>().position = originalPosition + offset;
             yield return null;
         }
-        curHealth = 0;
-        //playerLight.GetComponent<Playerlight>().Stop();
     }
 
 }
