@@ -138,14 +138,24 @@ public class Player : MonoBehaviour
     void AnimateMe()
     {
         float dirX = Input.GetAxis("Horizontal");
-        if (Mathf.Abs(rb.linearVelocity.x) > 0f && Mathf.Abs(dirX) > 0.2f)
+        if ((Mathf.Abs(rb.linearVelocity.x) > 0f && Mathf.Abs(dirX) > 0.2f) || (!IsGrounded() && anim.GetBool("AmIWalking")))
         {
             anim.SetBool("AmIWalking", true);
+            anim.SetBool("Jumping", false);
         }
         else
         {
             anim.SetBool("AmIWalking", false);
+            if ((Mathf.Abs(rb.linearVelocity.y) > 0.5f || !IsGrounded()) && Mathf.Abs(rb.linearVelocity.x) <= 0f)
+            {
+                anim.SetBool("Jumping", true);
+            }
+            else
+            {
+                anim.SetBool("Jumping", false);
+            }
         }
+
     }
     void FixedUpdate()
     {
