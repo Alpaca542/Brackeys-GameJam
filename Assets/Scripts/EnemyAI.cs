@@ -1,92 +1,124 @@
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor.Build;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
 
     public float speed = 2f;
-    public float jumpForce = 2f;
+    public float jumpForce = 5f;
     public LayerMask groundLayer;
+    public LayerMask playerLayer;
+    public float checkRad = 10f;
 
     private Rigidbody2D rb;
-    private bool IsGrounded;
+    private bool isGrounded;
     private bool shouldJump;
     private bool canAttack = true;
     private bool shouldAttack;
 
-    public Transform JumpCheck1;
-    public Transform JumpCheck2;
-    public Transform JumpCheck3;
+    public Transform jumpCheck;
+    public SpriteRenderer[] listSpr;
 
-    public float cooldown;
-
+    public float cooldown = 1f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        if (player == null)
+        {
+            Debug.LogError("Player not found! Ensure the Player has the correct tag.");
+            enabled = false;
+            return;
+        }
+        InvokeRepeating(nameof(InvokeJump), 1.5f, 1.5f);
     }
 
-    private bool Grounded()
+    private bool IsGrounded()
     {
-        if (Physics2D.Raycast(JumpCheck1.position, -transform.up, 0.1f, groundLayer) || Physics2D.Raycast(JumpCheck2.position, -transform.up, 0.1f, groundLayer) || Physics2D.Raycast(JumpCheck3.position, -transform.up, 0.1f, groundLayer))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return Physics2D.OverlapCircle(jumpCheck.position, 0.5f, groundLayer);
     }
 
     void Update()
     {
-        IsGrounded = Grounded();
-        float direction = Mathf.Sin(player.position.x - transform.position.x);
-        bool isPlayerAbove = Physics2D.Raycast(transform.position, transform.up, 3f, 1 << player.gameObject.layer);
+        if (player == null) return; // Avoid null reference issues
 
-        if (IsGrounded)
+        if (ShouldAct())
         {
-            rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);
+            isGrounded = IsGrounded();
+            float direction = Mathf.Sign(player.position.x - transform.position.x);
+            bool isPlayerAbove = Physics2D.Raycast(transform.position, Vector2.up, 3f, playerLayer);
 
-            RaycastHit2D groundInFront = Physics2D.Raycast(transform.position, new Vector2(direction, 0), 2f, groundLayer);
-            RaycastHit2D gapAhead = Physics2D.Raycast(transform.position + new Vector3(direction, 0, 0), Vector2.down, 2f, groundLayer);
-            RaycastHit2D platformAbove = Physics2D.Raycast(transform.position, Vector2.up, 3f, groundLayer);
+            if (isGrounded)
+            {
+                rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);
 
-            if (!groundInFront.collider && !gapAhead.collider)
-            {
-                shouldJump = true;
+                RaycastHit2D groundInFront = Physics2D.Raycast(transform.position, new Vector2(direction, 0), 2f, groundLayer);
+                RaycastHit2D gapAhead = Physics2D.Raycast(transform.position + new Vector3(direction, 0, 0), Vector2.down, 2f, groundLayer);
+                RaycastHit2D platformAbove = Physics2D.Raycast(transform.position, Vector2.up, 3f, groundLayer);
+
+                if (!groundInFront.collider && !gapAhead.collider)
+                {
+                    shouldJump = true;
+                }
+                else if (isPlayerAbove && platformAbove.collider)
+                {
+                    shouldJump = true;
+                }
             }
-            else if (isPlayerAbove && platformAbove.collider)
-            {
-                shouldJump = true;
-            }
+            shouldAttack = Physics2D.OverlapCircle(transform.position, 0.5f, playerLayer);
         }
-        shouldAttack = Physics2D.OverlapCircle(transform.position, 0.5f, 1 << player.gameObject.layer);
     }
+
+    void InvokeJump()
+    {
+        shouldJump = true;
+    }
+
+    bool ShouldAct()
+    {
+        return Physics2D.OverlapCircle(transform.position, checkRad, playerLayer);
+    }
+
     private void FixedUpdate()
     {
-        if (IsGrounded && shouldJump)
+        if (player == null) return;
+
+        if (ShouldAct())
         {
-            shouldJump = false;
-            Vector2 direction = (player.position - transform.position).normalized;
+            if (Mathf.Abs(rb.linearVelocity.x) > 0f)
+            {
+                if (rb.linearVelocity.x < 0f && transform.rotation != Quaternion.Euler(0, 180, 0))
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
+                else if (rb.linearVelocity.x > 0f && transform.rotation != Quaternion.Euler(0, 0, 0))
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+            }
 
-            Vector2 JumpDirection = direction * jumpForce;
+            if (isGrounded && shouldJump)
+            {
+                shouldJump = false;
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            }
 
-            rb.AddForce(new Vector2(JumpDirection.x, jumpForce), ForceMode2D.Impulse);
-        }
-
-        if (shouldAttack && canAttack)
-        {
-            player.gameObject.GetComponent<Player>().Hit();
-            canAttack = false;
-            StartCoroutine(attackCrtn());
+            if (shouldAttack && canAttack)
+            {
+                Player playerScript = player.GetComponent<Player>();
+                if (playerScript != null)
+                {
+                    playerScript.Hit();
+                    canAttack = false;
+                    StartCoroutine(AttackCooldown());
+                }
+            }
         }
     }
 
-    public IEnumerator attackCrtn()
+    public IEnumerator AttackCooldown()
     {
         yield return new WaitForSeconds(cooldown);
         canAttack = true;
