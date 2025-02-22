@@ -189,15 +189,15 @@ public class Player : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
-
-        foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaled"))
-        {
-            gm.GetComponent<TilemapRenderer>().material.SetVector("_PlayerPosition", transform.position);
-        }
-        foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaledObj"))
-        {
-            gm.GetComponent<SpriteRenderer>().material.SetVector("_PlayerPosition", transform.position);
-        }
+        GameObject.FindGameObjectWithTag("GreyScaled").GetComponent<TilemapRenderer>().material.SetVector("_PlayerPosition", transform.position);
+        // foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaled"))
+        // {
+        //     gm.GetComponent<TilemapRenderer>().material.SetVector("_PlayerPosition", transform.position);
+        // }
+        // foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaledObj"))
+        // {
+        //     gm.GetComponent<SpriteRenderer>().material.SetVector("_PlayerPosition", transform.position);
+        // }
         // foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaledEnem"))
         // {
         //     foreach (SpriteRenderer rnd in gm.GetComponent<EnemyAI>().listSpr)
