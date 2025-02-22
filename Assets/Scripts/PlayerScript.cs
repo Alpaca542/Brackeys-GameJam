@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
                     jumpBufferCounter = 0f; // Reset buffer after using it
                 }
                 justGrounded = true;
-                Instantiate(myBottomParticles, JumpCheck2.transform.position, Quaternion.identity);
+                Instantiate(myBottomParticles, JumpCheck2.transform.position, Quaternion.Euler(new Vector3(-90f, 0, 0)));
             }
 
             coyoteTimeCounter = coyoteTime;
