@@ -14,7 +14,7 @@ public class FlashBar : MonoBehaviour
     public float shakeAmount = 0.1f;
     public float shakeSpeed = 10f;
     private Vector3 originalPosition;
-    public float rate;
+    public float rate = 2f;
     public float curHealth;
 
     public bool decreasing;
@@ -36,7 +36,7 @@ public class FlashBar : MonoBehaviour
 
     public void SetHealth(float health)
     {
-        fill.GetComponent<RectTransform>().sizeDelta = new Vector2((health / max) * 961f, fill.GetComponent<RectTransform>().sizeDelta.y);
+        fill.GetComponent<RectTransform>().localScale = new Vector2((health / max), 1);
 
     }
 

@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class Playerlight : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private CircleCollider2D cld;
     void Start()
     {
-        
+        cld = GetComponent<CircleCollider2D>();
+    }
+    public void StartShining()
+    {
+        cld.gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StopShining()
     {
-        
+        cld.gameObject.SetActive(true);
     }
 }
