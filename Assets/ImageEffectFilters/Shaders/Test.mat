@@ -86,6 +86,7 @@ Material:
     - _SrcBlend: 5
     - _SrcBlendAlpha: 1
     - _Surface: 1
+    - _Transparency: 0.135
     - _ZWrite: 0
     m_Colors:
     - _0123: {r: -1, g: -1, b: -1, a: -1}
