@@ -170,6 +170,45 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: VisionOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -560,7 +599,24 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mister-dude-negative_0: -6241729957633028312
+      mister-dude-negative_1: 8752263766668572085
+      mister-dude-negative_10: 4982930635858173946
+      mister-dude-negative_11: 5906963093396723493
+      mister-dude-negative_12: -7618661292792106613
+      mister-dude-negative_13: 8168159424514561469
+      mister-dude-negative_14: 7663378592515924987
+      mister-dude-negative_15: 6104137174574903174
+      mister-dude-negative_16: 3132633056239286490
+      mister-dude-negative_2: -4901342446303173066
+      mister-dude-negative_3: 2020761976075775163
+      mister-dude-negative_4: -8464788781260091065
+      mister-dude-negative_5: 569291323873164973
+      mister-dude-negative_6: -1883114451219932731
+      mister-dude-negative_7: -6856243073663817334
+      mister-dude-negative_8: -4550266199975032257
+      mister-dude-negative_9: 8962202424771468473
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
