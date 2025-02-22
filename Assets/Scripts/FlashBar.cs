@@ -18,7 +18,7 @@ public class FlashBar : MonoBehaviour
     public float curHealth;
 
     public bool decreasing;
-
+    public float regenSpeed = 10f;
 
     void Update()
     {
@@ -31,6 +31,18 @@ public class FlashBar : MonoBehaviour
         {
             Debug.Log(2);
             DecreaseStop();
+        }
+        if (!decreasing)
+        {
+            if (curHealth < max)
+            {
+                curHealth += Time.deltaTime * regenSpeed;
+                SetHealth(curHealth);
+            }
+            else
+            {
+                curHealth = max;
+            }
         }
     }
 
@@ -49,20 +61,21 @@ public class FlashBar : MonoBehaviour
     {
         crtn = Shake();
         StartCoroutine(crtn);
+        decreasing = true;
     }
 
     public void DecreaseStop()
     {
         StopCoroutine(crtn);
-        curHealth = 0;
         playerLight.GetComponent<Playerlight>().StopShining();
-        GetComponent<RectTransform>().position = originalPosition;
+        GetComponent<RectTransform>().localPosition = originalPosition;
+        decreasing = false;
     }
 
     public IEnumerator Shake()
     {
         playerLight.GetComponent<Playerlight>().StartShining();
-        originalPosition = GetComponent<RectTransform>().position;
+        originalPosition = GetComponent<RectTransform>().localPosition;
         while (curHealth >= 0)
         {
             curHealth -= rate * Time.deltaTime;
@@ -71,9 +84,11 @@ public class FlashBar : MonoBehaviour
                 Mathf.PerlinNoise(Time.time * shakeSpeed, 0) * 2 - 1,
                 Mathf.PerlinNoise(0, Time.time * shakeSpeed) * 2 - 1,
                 0) * shakeAmount;
-            GetComponent<RectTransform>().position = originalPosition + offset;
+            GetComponent<RectTransform>().localPosition = originalPosition + offset;
             yield return null;
         }
+        curHealth = 0;
+        playerLight.GetComponent<Playerlight>().StopShining();
+        GetComponent<RectTransform>().localPosition = originalPosition;
     }
-
 }

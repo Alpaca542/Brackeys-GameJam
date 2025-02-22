@@ -52,7 +52,7 @@ public class Playerlight : MonoBehaviour
         if (collision.gameObject.tag == "Monster")
         {
             collision.gameObject.GetComponent<EnemyAI>().Blind();
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position - transform.position) * 10);
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position - transform.position).normalized * 30);
         }
     }
 }
