@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
@@ -65,6 +68,15 @@ public class Player : MonoBehaviour
         {
             damaged++;
         }
+        if (damaged > 0.5f)
+        {
+            Volume postProcessingVolume = GameObject.FindGameObjectWithTag("Volume").GetComponent<Volume>();
+            if (postProcessingVolume.profile.TryGet<Vignette>(out var vignette))
+            {
+                vignette.color.value = new Color32(255, 0, 0, 255);
+                DOTween.To(() => vignette.color.value, x => vignette.color.value = x, new Color32(0, 0, 0, 0), 5f);
+            }
+        }
         if (damaged > 2)
         {
             Destroy(gameObject);
@@ -97,7 +109,7 @@ public class Player : MonoBehaviour
                     jumpBufferCounter = 0f; // Reset buffer after using it
                 }
                 justGrounded = true;
-                Instantiate(myBottomParticles, JumpCheck2.transform.position, Quaternion.identity);
+                Instantiate(myBottomParticles, JumpCheck2.transform.position, Quaternion.Euler(new Vector3(-90f, 0, 0)));
             }
 
             coyoteTimeCounter = coyoteTime;

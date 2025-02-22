@@ -9,6 +9,8 @@ TagManager:
   - GreyScaledObj
   - Monster
   - MemManager
+  - Boss
+  - Volume
   layers:
   - Default
   - TransparentFX
