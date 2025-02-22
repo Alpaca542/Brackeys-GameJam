@@ -95,7 +95,7 @@ Transform:
   - {fileID: 7209230844320605802}
   - {fileID: 2700666045740463110}
   m_Father: {fileID: 4558063418646715187}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.408}
 --- !u!1 &4154654006556841446
 GameObject:
   m_ObjectHideFlags: 0
