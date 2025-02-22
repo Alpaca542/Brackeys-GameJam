@@ -74,13 +74,20 @@ public class DialogueScript : MonoBehaviour
         btnContinue.SetActive(false);
         btnContinueFake.SetActive(false);
         Display.text = "";
-        if (WhatToShow.name == "player")
+        if (WhatToShow.name == "laptop (1)_4")
         {
-            Display2.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(420, 420);
+            Display2.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1033f, 1535f);
+            Display2.gameObject.GetComponent<RectTransform>().localScale = new Vector2(0.7f, 0.7f);
+        }
+        else if (WhatToShow.name == "dog(0))")
+        {
+            Display2.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(787f, 1135f);
+            Display2.gameObject.GetComponent<RectTransform>().localScale = new Vector2(0.8f, 0.8f);
         }
         else
         {
-            Display2.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(221.65f, 0);
+            Display2.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(559f, 1259f);
+            Display2.gameObject.GetComponent<RectTransform>().localScale = new Vector2(1f, 1f);
         }
         Display2.sprite = WhatToShow;
         foreach (char letter1 in WhatToType.ToCharArray())

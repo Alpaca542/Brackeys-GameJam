@@ -1,0 +1,245 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5918849555716197937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6958395724007196144}
+  - component: {fileID: 8482443295514065277}
+  - component: {fileID: 3024738957292760196}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: DialogueMng
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6958395724007196144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5918849555716197937}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4261128, y: -1.7442123, z: -0.39433724}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8482443295514065277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5918849555716197937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be63d5176a4a4a11860c4065ea449c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StopTime: 0
+  Display: {fileID: 0}
+  Display2: {fileID: 0}
+  sentences:
+  - "    It was an ordinary evening. I was sitting at my laptop, finishing up a report
+    for Mr. Swanson. Everything was going as usual \u2014 just another day, another
+    task, my normal, ordinary life. But then I smelled burning. Before I could even
+    process what was happening, the screen went black, and smoke started pouring
+    out of the casing..."
+  - "    I grabbed the laptop, tried to do something, but it was too late. It burned
+    out. All my files, projects, plans \u2014 everything was gone. I thought, \"So
+    what? It's just a piece of tech. No big deal!\" If only I knew how wrong I was... "
+  - "    Fido was always by my side. He\u2019d greet me at the door, wagging his
+    tail like I was his whole world. After the laptop burned out, I thought, \"Well,
+    the worst is behind me. I\u2019ll handle th\u0443 consequences, no big deal!\"
+    But that day, I was too busy. I was stressed about work, angry at myself, at
+    the world. I didn\u2019t even notice the door was left slightly open..."
+  - "    When I realized Fido was gone, I rushed to look for him. I called his name,
+    ran through the streets, asked the neighbors. But he was gone. I felt awful.
+    He was the only one who was always happy to see me, no matter what. And I lost
+    him. \"It can\u2019t get worse,\" I told myself. How wrong I was..."
+  - "    Lily said I\u2019d changed. That I\u2019d become cold, distant. I didn\u2019t
+    listen. I was too wrapped up in my problems: the burned laptop, the missing Fido,
+    work. \"Sure, life has handed me a box of troubles, but I\u2019ll manage,\" I
+    thought..."
+  - "    But one day, I came home, and she was gone. On the table was a note: 'I
+    can\u2019t do this anymore. I\u2019m sorry.' I called her, texted her, but she
+    didn\u2019t respond. I stood in the empty apartment and realized I\u2019d lost
+    her. And myself. Life had found another way to remind me that there\u2019s always
+    a deeper, darker hole..."
+  - "    Mrs. Esposito was always strict but fair. She warned me I was behind on
+    rent. But I was sure I\u2019d sort it out. \"My problems aren\u2019t fatal,\"
+    I thought. \"There are people worse off than me. The worst is behind me; it\u2019s
+    only uphill from here.\" But when I saw the eviction notice, I realized I\u2019d
+    lost everything..."
+  - "    My home, my sanctuary. I stood on the street with a suitcase in my hand,
+    staring at the closed door. Mrs. Esposito wouldn\u2019t listen to me anymore,
+    wouldn\u2019t even answer my messages. Oh well. The bad times can\u2019t last
+    forever, right?.. "
+  - "    Mr. Swanson always said I was one of the best. After losing my home, I thought,
+    \"What else could possibly happen? I\u2019ve already made lemonade out of all
+    the lemons life gave me...\" "
+  - "    But I started being late, missing deadlines, making mistakes. I tried to
+    explain it was temporary, that I\u2019d fix everything. But he just shook his
+    head: 'You\u2019re not the man you used to be.' He was right. I\u2019d lost more
+    than just my job \u2014 I\u2019d lost something far more important..."
+  - "    Football was always my passion. When I started my business selling footballs,
+    I thought I\u2019d finally found my place in life. After getting fired, I told
+    myself, \"Now I\u2019ll bounce back \u2014 I\u2019ve got a lifeline!\" But I
+    was blind. I didn\u2019t see how everything was falling apart..."
+  - "    Competitors, debts, management mistakes \u2014 it all piled up like a snowball.
+    When I realized the business had failed, I felt the ground slip from under me.
+    It was the end. The end of everything I\u2019d built. It\u2019s hard to imagine
+    anything worse! I wouldn\u2019t have had the imagination for it!.."
+  - '    But life found a way to hit even harder. Nurse Kaylee was kind, but her
+    eyes said it all. ''We have bad news,'' she said. A diagnosis. A serious illness.
+    I stood in front of the mirror and looked at myself...'
+  - "    Who was this person? What had become of him? I didn\u2019t recognize myself
+    anymore. And I realized: this wasn\u2019t just a disease of the body. It was
+    a disease of the soul. \"It can\u2019t get worse,\" I told myself. But I knew
+    that wasn\u2019t true..."
+  - "    You thought you could just gather your memories and fix everything? You
+    thought that by understanding where you went wrong, you\u2019d become stronger?
+    How naive. These memories aren\u2019t the key to salvation. They\u2019re the
+    prison you built for yourself."
+  - "    And now you\u2019re locked here, with me. I am you \u2014 the you who thought
+    everything depended on you, who thought nothing could go wrong. You thought you
+    could control your life? You can\u2019t even control yourself."
+  - "    You are me. And I am you. We are one. And you\u2019ll never escape yourself. "
+  - "    You want to fight? Fine. Let\u2019s see who you really are. You or me. Your
+    hope or my truth."
+  ShouldIStopAfterpb: 0
+  noPlayer: 0
+  faces:
+  - {fileID: -9222015091149510293, guid: 72357e0832d6941649fe147a66f7c5ef, type: 3}
+  - {fileID: -9222015091149510293, guid: 72357e0832d6941649fe147a66f7c5ef, type: 3}
+  - {fileID: 1480917699468073914, guid: 9d2b0a61bd1a94d86a68328a5e5b4c88, type: 3}
+  - {fileID: 1480917699468073914, guid: 9d2b0a61bd1a94d86a68328a5e5b4c88, type: 3}
+  - {fileID: -2353376327185201564, guid: 61985754d76854997b2c58f0b33d9f87, type: 3}
+  - {fileID: -2353376327185201564, guid: 61985754d76854997b2c58f0b33d9f87, type: 3}
+  - {fileID: -2769040249091391924, guid: a2bab214ca90e4d38b7a8551306d19fa, type: 3}
+  - {fileID: -2769040249091391924, guid: a2bab214ca90e4d38b7a8551306d19fa, type: 3}
+  - {fileID: -863101162795978554, guid: c25cea76d388a4378a85d389106fbdae, type: 3}
+  - {fileID: -863101162795978554, guid: c25cea76d388a4378a85d389106fbdae, type: 3}
+  - {fileID: -6134421028427622431, guid: e3135344bdf3e4de0a77c9e7f6d9f9a3, type: 3}
+  - {fileID: -6134421028427622431, guid: e3135344bdf3e4de0a77c9e7f6d9f9a3, type: 3}
+  - {fileID: -6688939550927425646, guid: efc722124925e4c4c8665fb10b59ec77, type: 3}
+  - {fileID: -6688939550927425646, guid: efc722124925e4c4c8665fb10b59ec77, type: 3}
+  - {fileID: -6241729957633028312, guid: 478d9f72d2cc1409f9538e5c6ffbbfcb, type: 3}
+  - {fileID: -6241729957633028312, guid: 478d9f72d2cc1409f9538e5c6ffbbfcb, type: 3}
+  - {fileID: -6241729957633028312, guid: 478d9f72d2cc1409f9538e5c6ffbbfcb, type: 3}
+  - {fileID: -6241729957633028312, guid: 478d9f72d2cc1409f9538e5c6ffbbfcb, type: 3}
+  stopindexes: 020000000400000006000000080000000a0000000c0000000e00000012000000
+  IndexInMain: 0
+  Stringpb: 
+  btnContinue: {fileID: 0}
+  cnv: {fileID: 0}
+  cnvInGame: {fileID: 0}
+  btnContinueFake: {fileID: 0}
+  typingspeed: 0.02
+  startImmediately: 1
+--- !u!82 &3024738957292760196
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5918849555716197937}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bca78ac0d8e854de99b2cda2f79b7dc4, type: 3}
+  m_Resource: {fileID: 8300000, guid: bca78ac0d8e854de99b2cda2f79b7dc4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.483
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
