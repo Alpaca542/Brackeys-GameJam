@@ -11,7 +11,7 @@ public class FlashBar : MonoBehaviour
     public float max;
     public GameObject playerLight;
     private IEnumerator crtn;
-    public float shakeAmount = 0.1f;
+    public float shakeAmount = 0.2f;
     public float shakeSpeed = 10f;
     private Vector3 originalPosition;
     public float rate = 2f;
