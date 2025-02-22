@@ -516,9 +516,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &6720154758390230288
 MonoBehaviour:
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d3fd8f3de1a43ba807b9dfd7430bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 8
   jumpForce: 8
   groundLayer:
     serializedVersion: 2
@@ -541,6 +541,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   checkRad: 40
+  blinded: 0
+  blindparticles: {fileID: 0}
   jumpCheck: {fileID: 8559394382365985613}
   listSpr: []
   cooldown: 5

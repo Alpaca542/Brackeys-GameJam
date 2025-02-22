@@ -65,6 +65,10 @@ public class Player : MonoBehaviour
         {
             damaged++;
         }
+        if (damaged > 2)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private bool IsGrounded()

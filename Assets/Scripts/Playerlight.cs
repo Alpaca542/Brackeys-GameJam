@@ -9,11 +9,20 @@ public class Playerlight : MonoBehaviour
     }
     public void StartShining()
     {
-        cld.gameObject.SetActive(true);
+        cld.radius = 5f;
     }
 
     public void StopShining()
     {
-        cld.gameObject.SetActive(true);
+        cld.radius = 1f;
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Monster")
+        {
+            collision.gameObject.GetComponent<EnemyAI>().Blind();
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position - transform.position) * 10);
+        }
     }
 }

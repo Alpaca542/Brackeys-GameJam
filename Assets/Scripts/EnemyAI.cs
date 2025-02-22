@@ -10,6 +10,8 @@ public class EnemyAI : MonoBehaviour
     public LayerMask groundLayer;
     public LayerMask playerLayer;
     public float checkRad = 10f;
+    public bool blinded;
+    public GameObject blindparticles;
 
     private Rigidbody2D rb;
     private bool isGrounded;
@@ -21,7 +23,18 @@ public class EnemyAI : MonoBehaviour
     public SpriteRenderer[] listSpr;
 
     public float cooldown = 1f;
-
+    public void Blind()
+    {
+        blinded = true;
+        //blindparticles.SetActive(true);
+        CancelInvoke(nameof(UnBlind));
+        Invoke(nameof(UnBlind), 1f);
+    }
+    public void UnBlind()
+    {
+        blinded = false;
+        //blindparticles.SetActive(false);
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,7 +57,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (player == null) return; // Avoid null reference issues
 
-        if (ShouldAct())
+        if (ShouldAct() && !blinded)
         {
             isGrounded = IsGrounded();
             float direction = Mathf.Sign(player.position.x - transform.position.x);
@@ -85,15 +98,15 @@ public class EnemyAI : MonoBehaviour
     {
         if (player == null) return;
 
-        if (ShouldAct())
+        if (ShouldAct() && !blinded)
         {
             if (Mathf.Abs(rb.linearVelocity.x) > 0f)
             {
-                if (rb.linearVelocity.x < 0f && transform.rotation != Quaternion.Euler(0, 180, 0))
+                if (rb.linearVelocity.x > 0f && transform.rotation != Quaternion.Euler(0, 180, 0))
                 {
                     transform.rotation = Quaternion.Euler(0, 180, 0);
                 }
-                else if (rb.linearVelocity.x > 0f && transform.rotation != Quaternion.Euler(0, 0, 0))
+                else if (rb.linearVelocity.x < 0f && transform.rotation != Quaternion.Euler(0, 0, 0))
                 {
                     transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
