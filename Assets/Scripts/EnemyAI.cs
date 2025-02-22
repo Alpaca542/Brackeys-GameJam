@@ -45,7 +45,7 @@ public class EnemyAI : MonoBehaviour
             enabled = false;
             return;
         }
-        InvokeRepeating(nameof(InvokeJump), 2f, 2f);
+        InvokeRepeating(nameof(InvokeJump), 5f, 5f);
     }
 
     private bool IsGrounded()
@@ -71,7 +71,7 @@ public class EnemyAI : MonoBehaviour
                 RaycastHit2D gapAhead = Physics2D.Raycast(transform.position + new Vector3(direction, 0, 0), Vector2.down, 2f, groundLayer);
                 RaycastHit2D platformAbove = Physics2D.Raycast(transform.position, Vector2.up, 3f, groundLayer);
 
-                if (!groundInFront.collider && !gapAhead.collider)
+                if (groundInFront.collider && gapAhead.collider)
                 {
                     shouldJump = true;
                 }
@@ -86,7 +86,7 @@ public class EnemyAI : MonoBehaviour
 
     void InvokeJump()
     {
-        shouldJump = true;
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 
     bool ShouldAct()

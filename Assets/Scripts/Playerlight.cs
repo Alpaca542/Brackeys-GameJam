@@ -54,5 +54,9 @@ public class Playerlight : MonoBehaviour
             collision.gameObject.GetComponent<EnemyAI>().Blind();
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.gameObject.transform.position - transform.position).normalized * 30);
         }
+        else if (collision.gameObject.tag == "Boss")
+        {
+            collision.gameObject.GetComponent<Boss>().Blind();
+        }
     }
 }
