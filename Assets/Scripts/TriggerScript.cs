@@ -24,6 +24,7 @@ public class TriggerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        memManager.step++;
         dialogueManager.StartMainLine();
     }
 }
