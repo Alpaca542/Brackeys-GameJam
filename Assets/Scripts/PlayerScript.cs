@@ -137,7 +137,8 @@ public class Player : MonoBehaviour
     }
     void AnimateMe()
     {
-        if (Mathf.Abs(rb.linearVelocity.x) > 0f)
+        float dirX = Input.GetAxis("Horizontal");
+        if (Mathf.Abs(rb.linearVelocity.x) > 0f && Mathf.Abs(dirX) > 0.2f)
         {
             anim.SetBool("AmIWalking", true);
         }
