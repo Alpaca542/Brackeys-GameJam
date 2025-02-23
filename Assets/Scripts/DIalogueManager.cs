@@ -90,18 +90,18 @@ public class DialogueScript : MonoBehaviour
             }
             if (letter1 == ".".ToCharArray()[0] || letter1 == "!".ToCharArray()[0] || letter1 == "?".ToCharArray()[0])
             {
-                yield return new WaitForSecondsRealtime(0.8f);
                 GetComponent<AudioSource>().loop = false;
+                yield return new WaitForSecondsRealtime(0.8f);
             }
             else if (letter1 == ",".ToCharArray()[0])
             {
-                yield return new WaitForSecondsRealtime(0.4f);
                 GetComponent<AudioSource>().loop = false;
+                yield return new WaitForSecondsRealtime(0.4f);
             }
             else if (letter1 == " ".ToCharArray()[0])
             {
-                yield return new WaitForSecondsRealtime(0.08f);
                 GetComponent<AudioSource>().loop = false;
+                yield return new WaitForSecondsRealtime(0.08f);
             }
             else
             {
