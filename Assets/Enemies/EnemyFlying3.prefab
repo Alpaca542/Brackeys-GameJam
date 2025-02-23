@@ -518,9 +518,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &6720154758390230288
 MonoBehaviour:
@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d3fd8f3de1a43ba807b9dfd7430bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 2
   jumpForce: 4
   groundLayer:
     serializedVersion: 2
@@ -582,7 +582,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.18061197, y: 0.88985395}
+  m_Offset: {x: 0.18061197, y: 1.0726471}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -592,7 +592,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.4934657, y: 3.8588}
+  m_Size: {x: 2.4934657, y: 3.4932137}
   m_EdgeRadius: 0
 --- !u!111 &6774155359153263890
 Animation:

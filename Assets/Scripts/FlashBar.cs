@@ -19,12 +19,12 @@ public class FlashBar : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0))
         {
             Debug.Log(1);
             DecreaseStart();
         }
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(0))
         {
             Debug.Log(2);
             DecreaseStop();
