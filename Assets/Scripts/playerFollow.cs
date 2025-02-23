@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class playerFollow : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class playerFollow : MonoBehaviour
     private Vector3 playerVector;
     public GameObject myUI;
     public int speed;
-
+    public GameObject transition;
+    void Start()
+    {
+        transition.transform.DOMove(new Vector3(93.6f, 2.2f, 0), 2f);
+    }
     // Update is called once per frame
     void LateUpdate()
     {

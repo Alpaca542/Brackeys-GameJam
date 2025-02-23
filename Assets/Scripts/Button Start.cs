@@ -4,12 +4,17 @@ using DG.Tweening;
 
 public class MenuButtons : MonoBehaviour
 {
+    public GameObject transition;
     public void StartGame()
     {
         Debug.Log("start button is clicked");
+        transition.transform.DOMove(new Vector3(0, 0, 0), 2f);
+        Invoke(nameof(lscene), 2f);
+    }
+    public void lscene()
+    {
         SceneManager.LoadScene("GameScene");
     }
-
     // public void OpenSettings()
     // {
     //     SceneManager.LoadScene("SettingsScene");
