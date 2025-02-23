@@ -159,11 +159,13 @@ public class Player : MonoBehaviour
         float dirX = Input.GetAxis("Horizontal");
         if ((Mathf.Abs(rb.linearVelocity.x) > 0f && Mathf.Abs(dirX) > 0.2f) || (!IsGrounded() && anim.GetBool("AmIWalking")))
         {
+            GetComponent<soundManager>().StartPlaying();
             anim.SetBool("AmIWalking", true);
             anim.SetBool("Jumping", false);
         }
         else
         {
+            GetComponent<soundManager>().StopPlaying();
             anim.SetBool("AmIWalking", false);
             if ((Mathf.Abs(rb.linearVelocity.y) > 0.5f || !IsGrounded()) && Mathf.Abs(rb.linearVelocity.x) <= 0f)
             {
