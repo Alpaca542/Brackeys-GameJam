@@ -34,6 +34,7 @@ public class Boss : MonoBehaviour
         if (health <= 0)
         {
             Camera.main.GetComponent<playerFollow>().Win();
+            Destroy(gameObject);
         }
         CancelInvoke(nameof(UnBlind));
         Invoke(nameof(UnBlind), 1f);

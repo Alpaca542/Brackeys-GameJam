@@ -49,6 +49,7 @@ public class TriggerScript : MonoBehaviour
         if (amiforboss)
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().jump = 14f;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().speed *= 1.5f;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().gravityScale = 1f;
             dialogueManager.IndexInMain = 14;
         }

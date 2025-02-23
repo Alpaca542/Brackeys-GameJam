@@ -158,9 +158,16 @@ public class Player : MonoBehaviour
     void AnimateMe()
     {
         float dirX = Input.GetAxis("Horizontal");
-        if ((Mathf.Abs(rb.linearVelocity.x) > 0f && Mathf.Abs(dirX) > 0.2f) || (!IsGrounded() && anim.GetBool("AmIWalking")))
+        if (Time.timeScale > 0.9f && ((Mathf.Abs(rb.linearVelocity.x) > 0f && Mathf.Abs(dirX) > 0.2f) || (!IsGrounded() && anim.GetBool("AmIWalking"))))
         {
-            GetComponent<soundManager>().StartPlaying(false);
+            if (IsGrounded())
+            {
+                GetComponent<soundManager>().StartPlaying(false);
+            }
+            else
+            {
+                GetComponent<soundManager>().StopPlaying(false);
+            }
             anim.SetBool("AmIWalking", true);
             anim.SetBool("Jumping", false);
         }
