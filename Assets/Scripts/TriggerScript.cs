@@ -10,6 +10,7 @@ public class TriggerScript : MonoBehaviour
     public int curStep;
     private GameObject memManager;
     private DialogueScript dialogueManager;
+    public bool amiforboss;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class TriggerScript : MonoBehaviour
     {
         if (memManager.GetComponent<MemoryManager>().step != curStep)
         {
-            if (memManager.GetComponent<MemoryManager>().step >= 7)
+            if (memManager.GetComponent<MemoryManager>().step >= 7 && !amiforboss)
             {
                 Destroy(gameObject);
             }
@@ -47,5 +48,6 @@ public class TriggerScript : MonoBehaviour
         yield return new WaitForSecondsRealtime(3f);
         dialogueManager.StartMainLine();
         memManager.GetComponent<MemoryManager>().step++;
+        Destroy(gameObject);
     }
 }
