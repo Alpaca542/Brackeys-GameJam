@@ -6,6 +6,6 @@ public class transit : MonoBehaviour
     public GameObject transition;
     void Start()
     {
-        transition.transform.DOMove(new Vector3(93.6f, 2.2f, 0), 4f);
+        transition.transform.DOMove(new Vector3(68f, 2.2f, 0), 4f);
     }
 }

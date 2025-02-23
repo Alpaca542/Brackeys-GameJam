@@ -15,7 +15,7 @@ public class playerFollow : MonoBehaviour
     public musicscript musicManager;
     void Start()
     {
-        transition.transform.DOLocalMove(new Vector3(93.6f, 2.2f, 0), 4f);
+        transition.transform.DOLocalMove(new Vector3(58f, 2.2f, 10f), 4f);
     }
     // Update is called once per frame
     void LateUpdate()
@@ -26,13 +26,13 @@ public class playerFollow : MonoBehaviour
     }
     public void Lose()
     {
-        transition.transform.DOLocalMove(new Vector3(0f, 0f, 0), 4f);
+        transition.transform.DOLocalMove(new Vector3(0f, 0f, 10f), 4f);
         GameObject.FindGameObjectWithTag("musicManager").GetComponent<musicscript>().Down();
         Invoke(nameof(SceneTransLose), 4f);
     }
     public void Win()
     {
-        transition.transform.DOLocalMove(new Vector3(0f, 0f, 0), 4f);
+        transition.transform.DOLocalMove(new Vector3(0f, 0f, 10f), 4f);
         GameObject.FindGameObjectWithTag("musicManager").GetComponent<musicscript>().Down();
         Invoke(nameof(SceneTransWin), 4f);
     }
