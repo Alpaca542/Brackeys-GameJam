@@ -38,7 +38,7 @@ public class DialogueScript : MonoBehaviour
         {
             cnvInGame.SetActive(true);
             btnContinue.SetActive(false);
-            cnv.SetActive(false);
+            //cnv.SetActive(false);
             IndexInMain = stopindexes[0];
         }
     }
@@ -53,12 +53,9 @@ public class DialogueScript : MonoBehaviour
     }
     public IEnumerator Type(string WhatToType, GameObject WhatToShow, bool ShouldIStopAfter)
     {
+        Debug.Log(1);
         GetComponent<AudioSource>().loop = true;
         GetComponent<AudioSource>().Play();
-        if (StopTime)
-        {
-            Time.timeScale = 0f;
-        }
         ShouldIStopAfterpb = ShouldIStopAfter;
         Stringpb = WhatToType;
         if (!noPlayer)
@@ -68,8 +65,8 @@ public class DialogueScript : MonoBehaviour
                 Camera.main.GetComponent<playerFollow>().player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
             }
         }
-
         cnv.SetActive(true);
+        cnv.GetComponent<RectTransform>().DOLocalMoveY(0f, 1f).SetUpdate(true); ;
         cnvInGame.SetActive(false);
         btnContinue.SetActive(false);
         btnContinueFake.SetActive(false);
@@ -80,11 +77,11 @@ public class DialogueScript : MonoBehaviour
             Display.text += letter1;
             if (letter1 == ".".ToCharArray()[0] || letter1 == "!".ToCharArray()[0] || letter1 == "?".ToCharArray()[0])
             {
-                yield return new WaitForSecondsRealtime(0.1f);
+                yield return new WaitForSecondsRealtime(0.8f);
             }
             else if (letter1 == " ".ToCharArray()[0])
             {
-                yield return new WaitForSecondsRealtime(0.05f);
+                yield return new WaitForSecondsRealtime(0.1f);
             }
             else
             {
@@ -106,6 +103,7 @@ public class DialogueScript : MonoBehaviour
     {
         coroutine = Type(sentences[IndexInMain], faces[IndexInMain], false);
         StartCoroutine(coroutine);
+        Debug.Log(1);
     }
     public void ContinueTyping()
     {
@@ -127,13 +125,13 @@ public class DialogueScript : MonoBehaviour
                 }
                 else
                 {
-                    if (StopTime)
-                    {
-                        Time.timeScale = 1f;
-                    }
+                    Time.timeScale = 1f;
+                    Camera.main.DOOrthoSize(4f, 2f).SetUpdate(true);
+
                     cnvInGame.SetActive(true);
                     btnContinue.SetActive(false);
-                    cnv.SetActive(false);
+                    cnv.GetComponent<RectTransform>().DOLocalMoveY(-1500f, 1f).SetUpdate(true); ;
+                    Invoke(nameof(OffInv), 1f);
 
                     if (IndexInMain == stopindexes[0])
                     {
@@ -146,14 +144,17 @@ public class DialogueScript : MonoBehaviour
 
     public void StopTyping()
     {
-        if (StopTime)
-        {
-            Time.timeScale = 1f;
-        }
+        Time.timeScale = 1f;
+        Camera.main.DOOrthoSize(4f, 2f).SetUpdate(true);
         cnvInGame.SetActive(true);
         btnContinue.SetActive(false);
-        cnv.SetActive(false);
+        cnv.GetComponent<RectTransform>().DOLocalMoveY(-1500f, 1f).SetUpdate(true); ;
+        Invoke(nameof(OffInv), 1f);
         Camera.main.transform.parent.GetComponent<playerFollow>().enabled = true;
+    }
+    public void OffInv()
+    {
+        cnv.SetActive(false);
     }
     private void Update()
     {

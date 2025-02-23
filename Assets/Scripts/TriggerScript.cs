@@ -1,30 +1,53 @@
+using System.Collections;
 using UnityEngine;
+using DG.Tweening;
+using Unity.VisualScripting;
 
 public class TriggerScript : MonoBehaviour
 {
     public SpriteRenderer mySpriteRen;
     public Sprite[] spriteSteps;
     public int curStep;
-    private MemoryManager memManager;
+    private GameObject memManager;
     private DialogueScript dialogueManager;
 
     void Start()
     {
-        memManager = GameObject.FindGameObjectWithTag("MemManager").GetComponent<MemoryManager>();
-        dialogueManager = GameObject.FindGameObjectWithTag("DialogueMngr").GetComponent<DialogueScript>();
+        memManager = GameObject.FindGameObjectWithTag("MemManager");
+        dialogueManager = GameObject.FindGameObjectWithTag("DialogueMng").GetComponent<DialogueScript>();
+
+        curStep = memManager.GetComponent<MemoryManager>().step;
+        mySpriteRen.sprite = spriteSteps[curStep];
     }
     void Update()
     {
-        if (memManager.step != curStep)
+        if (memManager.GetComponent<MemoryManager>().step != curStep)
         {
-            curStep = memManager.step;
+            if (memManager.GetComponent<MemoryManager>().step >= 7)
+            {
+                Destroy(gameObject);
+            }
+            curStep = memManager.GetComponent<MemoryManager>().step;
             mySpriteRen.sprite = spriteSteps[curStep];
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        memManager.step++;
+        if (collision.gameObject.tag == "Player")
+        {
+            memManager.GetComponent<MemoryManager>().step++;
+            StartCoroutine(StartMem());
+        }
+    }
+    public IEnumerator StartMem()
+    {
+        Time.timeScale = 0f;
+        Debug.Log("Hi2");
+        Camera.main.DOOrthoSize(2f, 2f).SetUpdate(true);
+        Camera.main.transform.DOMove(new Vector3(transform.position.x, transform.position.y, -10), 2f).SetUpdate(true);
+        yield return new WaitForSecondsRealtime(3f);
         dialogueManager.StartMainLine();
+        Debug.Log("Hi1");
     }
 }
