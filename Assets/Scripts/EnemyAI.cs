@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
     public float cooldown = 2f;
     public void Blind()
     {
-        rb.mass = 100f;
+        rb.mass = 3f;
         blinded = true;
         blindparticles.SetActive(true);
         CancelInvoke(nameof(UnBlind));
@@ -41,7 +41,7 @@ public class EnemyAI : MonoBehaviour
     {
         blindparticles.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
-        rb.mass = 10f;
+        rb.mass = 3f;
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         if (player == null)
         {
@@ -107,13 +107,14 @@ public class EnemyAI : MonoBehaviour
 
         if (ShouldAct() && !blinded)
         {
-            if (Mathf.Abs(rb.linearVelocity.x) > 0f)
+            Vector2 dirToPlayer = player.transform.position - transform.position;
+            if (Mathf.Abs(dirToPlayer.x) > 0.5f)
             {
-                if (rb.linearVelocity.x > 0f && transform.rotation != Quaternion.Euler(0, 180, 0))
+                if (dirToPlayer.x > 0f && transform.rotation != Quaternion.Euler(0, 180, 0))
                 {
                     transform.rotation = Quaternion.Euler(0, 180, 0);
                 }
-                else if (rb.linearVelocity.x < 0f && transform.rotation != Quaternion.Euler(0, 0, 0))
+                else if (dirToPlayer.x < 0f && transform.rotation != Quaternion.Euler(0, 0, 0))
                 {
                     transform.rotation = Quaternion.Euler(0, 0, 0);
                 }

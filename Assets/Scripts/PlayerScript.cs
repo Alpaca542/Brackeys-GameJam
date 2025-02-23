@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
             if (postProcessingVolume.profile.TryGet<Vignette>(out var vignette))
             {
                 vignette.color.value = new Color32(255, 0, 0, 255);
-                DOTween.To(() => vignette.color.value, x => vignette.color.value = x, new Color32(0, 0, 0, 0), 5f);
+                DOTween.To(() => vignette.color.value, x => vignette.color.value = x, new Color32(0, 0, 0, 0), 3f);
             }
         }
         if (damaged > 2)
