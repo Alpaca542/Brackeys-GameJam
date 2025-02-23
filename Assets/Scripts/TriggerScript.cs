@@ -36,18 +36,16 @@ public class TriggerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            memManager.GetComponent<MemoryManager>().step++;
             StartCoroutine(StartMem());
         }
     }
     public IEnumerator StartMem()
     {
         Time.timeScale = 0f;
-        Debug.Log("Hi2");
         Camera.main.DOOrthoSize(2f, 2f).SetUpdate(true);
         Camera.main.transform.DOMove(new Vector3(transform.position.x, transform.position.y, -10), 2f).SetUpdate(true);
         yield return new WaitForSecondsRealtime(3f);
         dialogueManager.StartMainLine();
-        Debug.Log("Hi1");
+        memManager.GetComponent<MemoryManager>().step++;
     }
 }

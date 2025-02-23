@@ -39,7 +39,7 @@ public class DialogueScript : MonoBehaviour
             cnvInGame.SetActive(true);
             btnContinue.SetActive(false);
             //cnv.SetActive(false);
-            IndexInMain = stopindexes[0];
+            IndexInMain = 0;
         }
     }
     public void StartCrtnRemotely(string WhatToType, GameObject WhatToShow, bool ShouldIStopAfter, float savedOrthoSize1)
