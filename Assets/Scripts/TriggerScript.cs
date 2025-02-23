@@ -48,8 +48,8 @@ public class TriggerScript : MonoBehaviour
         yield return new WaitForSecondsRealtime(3f);
         if (amiforboss)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().jump = 14f;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().speed *= 1.5f;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().jump = 12f;
+            //GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().speed *= 1f;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().gravityScale = 1f;
             dialogueManager.IndexInMain = 14;
         }
