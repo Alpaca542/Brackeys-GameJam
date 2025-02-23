@@ -29,7 +29,7 @@ public class Boss : MonoBehaviour
         foreach (GameObject gmb in blindparticles)
         {
             var emission = gmb.GetComponent<ParticleSystem>().emission;
-            emission.rateOverTime = new ParticleSystem.MinMaxCurve(1 / health);
+            emission.rateOverTime = new ParticleSystem.MinMaxCurve((1 / health) * 200);
         }
         if (health <= 0)
         {

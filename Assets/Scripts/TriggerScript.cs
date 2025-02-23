@@ -46,6 +46,12 @@ public class TriggerScript : MonoBehaviour
         Camera.main.DOOrthoSize(2f, 2f).SetUpdate(true);
         Camera.main.transform.DOMove(new Vector3(transform.position.x, transform.position.y, -10), 2f).SetUpdate(true);
         yield return new WaitForSecondsRealtime(3f);
+        if (amiforboss)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().jump = 14f;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().gravityScale = 1f;
+            dialogueManager.IndexInMain = 14;
+        }
         dialogueManager.StartMainLine();
         memManager.GetComponent<MemoryManager>().step++;
         Destroy(gameObject);
