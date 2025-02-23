@@ -25,6 +25,7 @@ public class EnemyAI : MonoBehaviour
     public float cooldown = 2f;
     public void Blind()
     {
+        rb.mass = 100f;
         blinded = true;
         blindparticles.SetActive(true);
         CancelInvoke(nameof(UnBlind));
@@ -32,6 +33,7 @@ public class EnemyAI : MonoBehaviour
     }
     public void UnBlind()
     {
+        rb.mass = 1f;
         blinded = false;
         blindparticles.SetActive(false);
     }
@@ -39,6 +41,7 @@ public class EnemyAI : MonoBehaviour
     {
         blindparticles.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
+        rb.mass = 10f;
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         if (player == null)
         {
@@ -87,7 +90,10 @@ public class EnemyAI : MonoBehaviour
 
     void InvokeJump()
     {
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        if (!blinded)
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
     }
 
     bool ShouldAct()
