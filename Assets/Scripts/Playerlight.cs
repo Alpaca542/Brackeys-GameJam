@@ -10,6 +10,7 @@ public class Playerlight : MonoBehaviour
     void Start()
     {
         cld = GetComponent<CircleCollider2D>();
+        cld.radius = 0f;
     }
     public void StartShining()
     {
@@ -33,7 +34,7 @@ public class Playerlight : MonoBehaviour
     public void StopShining()
     {
         GetComponent<soundManager>().StopPlaying(true);
-        cld.radius = 1f;
+        cld.radius = 0f;
         foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaled"))
         {
             gm.GetComponent<TilemapRenderer>().material.SetFloat("_ExclusionRadius", 1f);

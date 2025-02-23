@@ -22,13 +22,13 @@ public class EnemyAI : MonoBehaviour
     public Transform jumpCheck;
     public SpriteRenderer[] listSpr;
 
-    public float cooldown = 1f;
+    public float cooldown = 2f;
     public void Blind()
     {
         blinded = true;
         blindparticles.SetActive(true);
         CancelInvoke(nameof(UnBlind));
-        Invoke(nameof(UnBlind), 1f);
+        Invoke(nameof(UnBlind), 4f);
     }
     public void UnBlind()
     {
@@ -124,6 +124,7 @@ public class EnemyAI : MonoBehaviour
                 if (playerScript != null)
                 {
                     playerScript.Hit();
+                    GetComponent<soundManager>().PlaySound(0, 0.9f, 1.1f, false);
                     canAttack = false;
                     StartCoroutine(AttackCooldown());
                 }

@@ -425,6 +425,7 @@ GameObject:
   - component: {fileID: 7380216180153643527}
   - component: {fileID: 4859157084855502892}
   - component: {fileID: 447332681950177743}
+  - component: {fileID: 1901412159969205107}
   m_Layer: 6
   m_Name: EnemyFlying2
   m_TagString: Monster
@@ -566,6 +567,26 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.0109196, y: 3.156743}
   m_EdgeRadius: 0
+--- !u!114 &1901412159969205107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696041788393872515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e7edd4bb3984372b6203a1f9016afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundslist:
+  - {fileID: 8300000, guid: fad234ef653ac41e88fa6cbb359d9e09, type: 3}
+  shouldILoop: 0
+  amIPlaying: 0
+  shouldIPlayOnStart: 0
+  audioHandler: {fileID: 3212456506246228144, guid: 0583d4e476b5b46f2bfe2d9288a8c4c1, type: 3}
+  pitchrangeDOWN: 0
+  pitchrangeUP: 0
 --- !u!1 &8997669517083489921
 GameObject:
   m_ObjectHideFlags: 0

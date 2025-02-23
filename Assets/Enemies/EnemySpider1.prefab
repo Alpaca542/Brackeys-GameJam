@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: -7378294572188614508}
   - component: {fileID: 9198409297863035960}
   - component: {fileID: 3566076572679793047}
+  - component: {fileID: -4120190935005998586}
   m_Layer: 6
   m_Name: EnemySpider1
   m_TagString: Monster
@@ -710,6 +711,26 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &-4120190935005998586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8623583381542889496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e7edd4bb3984372b6203a1f9016afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundslist:
+  - {fileID: 8300000, guid: fad234ef653ac41e88fa6cbb359d9e09, type: 3}
+  shouldILoop: 0
+  amIPlaying: 0
+  shouldIPlayOnStart: 0
+  audioHandler: {fileID: 3212456506246228144, guid: 0583d4e476b5b46f2bfe2d9288a8c4c1, type: 3}
+  pitchrangeDOWN: 0
+  pitchrangeUP: 0
 --- !u!1 &9176107467331279002
 GameObject:
   m_ObjectHideFlags: 0
