@@ -26,6 +26,10 @@ public class Boss : MonoBehaviour
     public void Blind()
     {
         health -= Time.deltaTime;
+        if (health <= 0)
+        {
+            Camera.main.GetComponent<playerFollow>().Win();
+        }
         //blindparticles.SetActive(true);
         CancelInvoke(nameof(UnBlind));
         Invoke(nameof(UnBlind), 1f);
