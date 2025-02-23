@@ -26,14 +26,14 @@ public class EnemyAI : MonoBehaviour
     public void Blind()
     {
         blinded = true;
-        //blindparticles.SetActive(true);
+        blindparticles.SetActive(true);
         CancelInvoke(nameof(UnBlind));
         Invoke(nameof(UnBlind), 1f);
     }
     public void UnBlind()
     {
         blinded = false;
-        //blindparticles.SetActive(false);
+        blindparticles.SetActive(false);
     }
     void Start()
     {
