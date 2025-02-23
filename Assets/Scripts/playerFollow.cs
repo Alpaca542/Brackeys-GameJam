@@ -28,7 +28,7 @@ public class playerFollow : MonoBehaviour
     {
         transition.transform.DOMove(new Vector3(0f, 0f, 0), 4f);
         GameObject.FindGameObjectWithTag("musicManager").GetComponent<musicscript>().Down();
-        Invoke(nameof(SceneTransWin), 4f);
+        Invoke(nameof(SceneTransLose), 4f);
     }
     public void Win()
     {
