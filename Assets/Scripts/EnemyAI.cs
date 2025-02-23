@@ -37,6 +37,7 @@ public class EnemyAI : MonoBehaviour
     }
     void Start()
     {
+        blindparticles.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
         if (player == null)

@@ -11,10 +11,12 @@ public class Playerlight : MonoBehaviour
     {
         cld = GetComponent<CircleCollider2D>();
         cld.radius = 0f;
+        cld.enabled = false;
     }
     public void StartShining()
     {
         GetComponent<soundManager>().StartPlaying(true);
+        cld.enabled = true;
         cld.radius = 5f;
         foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaled"))
         {
@@ -34,6 +36,7 @@ public class Playerlight : MonoBehaviour
     public void StopShining()
     {
         GetComponent<soundManager>().StopPlaying(true);
+        cld.enabled = false;
         cld.radius = 0f;
         foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaled"))
         {
