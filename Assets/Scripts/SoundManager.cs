@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class soundManager : MonoBehaviour
@@ -16,9 +17,17 @@ public class soundManager : MonoBehaviour
     {
         sound = GetComponent<AudioSource>();
     }
-    public void PlaySound(int whichsound, float pitchrangeDOWN, float pitchrangeUP)
+    public void PlaySound(int whichsound, float pitchrangeDOWN, float pitchrangeUP, bool spawnIn)
     {
-        GameObject gmb = Instantiate(audioHandler, transform.position, Quaternion.identity);
+        GameObject gmb;
+        if (spawnIn)
+        {
+            gmb = Instantiate(audioHandler, transform.position, Quaternion.identity, transform);
+        }
+        else
+        {
+            gmb = Instantiate(audioHandler, transform.position, Quaternion.identity);
+        }
         gmb.GetComponent<AudioSource>().clip = soundslist[whichsound];
         gmb.GetComponent<AudioSource>().pitch = Random.Range(pitchrangeDOWN, pitchrangeUP);
         gmb.GetComponent<AudioSource>().Play();
@@ -32,20 +41,34 @@ public class soundManager : MonoBehaviour
         gmb.GetComponent<AudioSource>().Play();
     }
 
-    public void StopPlaying()
+    public void StopPlaying(bool fade)
     {
-        sound.loop = false;
+        if (fade)
+        {
+            sound.DOFade(0f, 1f);
+        }
+        else
+        {
+            sound.loop = false;
+        }
     }
 
-    public void StartPlaying()
+    public void StartPlaying(bool fade)
     {
-        sound.loop = true;
-        if (!sound.isPlaying)
+        if (fade)
         {
-            sound.Play();
+            sound.DOFade(0.3f, 1f);
         }
-        CancelInvoke(nameof(alterPitch));
-        InvokeRepeating(nameof(alterPitch), 0f, sound.clip.length);
+        else
+        {
+            sound.loop = true;
+            if (!sound.isPlaying)
+            {
+                sound.Play();
+            }
+            CancelInvoke(nameof(alterPitch));
+            InvokeRepeating(nameof(alterPitch), 0f, sound.clip.length);
+        }
     }
     public void alterPitch()
     {

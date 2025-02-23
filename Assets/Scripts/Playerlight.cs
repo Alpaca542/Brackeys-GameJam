@@ -13,6 +13,7 @@ public class Playerlight : MonoBehaviour
     }
     public void StartShining()
     {
+        GetComponent<soundManager>().StartPlaying(true);
         cld.radius = 5f;
         foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaled"))
         {
@@ -31,6 +32,7 @@ public class Playerlight : MonoBehaviour
 
     public void StopShining()
     {
+        GetComponent<soundManager>().StopPlaying(true);
         cld.radius = 1f;
         foreach (GameObject gm in GameObject.FindGameObjectsWithTag("GreyScaled"))
         {
