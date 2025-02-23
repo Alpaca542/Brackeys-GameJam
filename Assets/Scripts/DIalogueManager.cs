@@ -79,9 +79,13 @@ public class DialogueScript : MonoBehaviour
             {
                 yield return new WaitForSecondsRealtime(0.8f);
             }
+            else if (letter1 == ",".ToCharArray()[0])
+            {
+                yield return new WaitForSecondsRealtime(0.4f);
+            }
             else if (letter1 == " ".ToCharArray()[0])
             {
-                yield return new WaitForSecondsRealtime(0.1f);
+                yield return new WaitForSecondsRealtime(0.08f);
             }
             else
             {
