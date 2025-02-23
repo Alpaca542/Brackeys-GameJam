@@ -11,6 +11,7 @@ TagManager:
   - MemManager
   - Boss
   - Volume
+  - musicManager
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,6 @@ public class playerFollow : MonoBehaviour
     void Start()
     {
         transition.transform.DOMove(new Vector3(93.6f, 2.2f, 0), 4f);
-        GameObject.FindGameObjectWithTag("musicManager").GetComponent<musicscript>().Up();
     }
     // Update is called once per frame
     void LateUpdate()

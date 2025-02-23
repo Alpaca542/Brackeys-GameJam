@@ -34,11 +34,6 @@ public class MenuButtons : MonoBehaviour
     {
         GetComponent<RectTransform>().DOScale(new Vector3(1.06f, 1.06f, 1f), 0.5f);
     }
-    void Start()
-    {
-        GameObject.FindGameObjectWithTag("musicManager").GetComponent<musicscript>().Up();
-
-    }
     public void OnUnHoverOverMe()
     {
         GetComponent<RectTransform>().DOScale(new Vector3(0.9f, 0.9f, 0.9f), 0.5f);
