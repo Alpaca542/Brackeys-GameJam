@@ -25,7 +25,7 @@ public class Playerlight : MonoBehaviour
 
         if (postProcessingVolume.profile.TryGet<ColorAdjustments>(out var colorAdjustments))
         {
-            colorAdjustments.postExposure.value = 3.76f;
+            colorAdjustments.postExposure.value = 1.7f;
         }
     }
 
