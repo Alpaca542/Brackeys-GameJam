@@ -11,7 +11,7 @@ public class Boss : MonoBehaviour
     public LayerMask playerLayer;
     public float checkRad = 10f;
     public bool blinded = false;
-    public GameObject blindparticles;
+    public GameObject[] blindparticles;
     public float health;
 
     private Rigidbody2D rb;
@@ -26,11 +26,15 @@ public class Boss : MonoBehaviour
     public void Blind()
     {
         health -= Time.deltaTime;
+        foreach (GameObject gmb in blindparticles)
+        {
+            var emission = gmb.GetComponent<ParticleSystem>().emission;
+            emission.rateOverTime = new ParticleSystem.MinMaxCurve(1 / health);
+        }
         if (health <= 0)
         {
             Camera.main.GetComponent<playerFollow>().Win();
         }
-        //blindparticles.SetActive(true);
         CancelInvoke(nameof(UnBlind));
         Invoke(nameof(UnBlind), 1f);
     }
@@ -66,7 +70,7 @@ public class Boss : MonoBehaviour
     }
     void Update()
     {
-        if (player == null) return; // Avoid null reference issues
+        if (player == null) return;
 
         if (ShouldAct() && !blinded)
         {
