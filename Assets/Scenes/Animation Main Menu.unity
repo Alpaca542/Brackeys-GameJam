@@ -307,7 +307,7 @@ Transform:
   m_GameObject: {fileID: 159087622}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.143619, y: 0.11289173, z: -32066.133}
+  m_LocalPosition: {x: 2.1100004, y: -4.06, z: -32066.133}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -419,7 +419,7 @@ Transform:
   m_GameObject: {fileID: 405472745}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.143619, y: 0.11289173, z: -32066.133}
+  m_LocalPosition: {x: 11.039791, y: 2.1457584, z: -32066.133}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da14a7dc7ad44c21a1ed1e0fe5a6fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedMax: 0.1
+  moveSpeedMax: 0.2
   minPauseTime: 0.5
   maxPauseTime: 2
   moveRadius: 0.5
@@ -755,7 +755,7 @@ Transform:
   m_GameObject: {fileID: 559660204}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.3038273, y: -0.65286666, z: -32066.133}
+  m_LocalPosition: {x: -0.9497919, y: -2.8357584, z: -32066.133}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -965,6 +965,7 @@ GameObject:
   - component: {fileID: 610556725}
   - component: {fileID: 610556724}
   - component: {fileID: 610556727}
+  - component: {fileID: 610556728}
   m_Layer: 5
   m_Name: Button Exit
   m_TagString: Untagged
@@ -981,14 +982,14 @@ RectTransform:
   m_GameObject: {fileID: 610556722}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1693174314}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0.00012207031, y: -368}
+  m_AnchoredPosition: {x: 0.00012207031, y: -371}
   m_SizeDelta: {x: -1796, y: 272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &610556724
@@ -1097,6 +1098,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81309ea196a14412f886a93081aebc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &610556728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610556722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 610556727}
+          m_TargetAssemblyTypeName: buttonexitfromgame, Assembly-CSharp
+          m_MethodName: OnHoverOverMe
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 610556727}
+          m_TargetAssemblyTypeName: buttonexitfromgame, Assembly-CSharp
+          m_MethodName: OnUnHoverOverMe
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &611698595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1388,7 @@ Transform:
   m_GameObject: {fileID: 881770140}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8272085, y: -1.5172322, z: -32066.133}
+  m_LocalPosition: {x: -1.3827915, y: -3.7372322, z: -32066.133}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1454,7 +1500,7 @@ Transform:
   m_GameObject: {fileID: 915992264}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.404787, y: 0.23965251, z: -32066.133}
+  m_LocalPosition: {x: 3.194787, y: -1.9803475, z: -32066.133}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1863,7 +1909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da14a7dc7ad44c21a1ed1e0fe5a6fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedMax: 0.1
+  moveSpeedMax: 0.2
   minPauseTime: 0.5
   maxPauseTime: 2
   moveRadius: 0.5
@@ -1902,7 +1948,7 @@ Transform:
   m_GameObject: {fileID: 1139393070}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.686538, y: -0.9823883, z: -32066.133}
+  m_LocalPosition: {x: 11.58271, y: 1.0504785, z: -32066.133}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2112,6 +2158,7 @@ GameObject:
   - component: {fileID: 1324534499}
   - component: {fileID: 1324534498}
   - component: {fileID: 1324534501}
+  - component: {fileID: 1324534502}
   m_Layer: 5
   m_Name: Button Start
   m_TagString: Untagged
@@ -2128,14 +2175,14 @@ RectTransform:
   m_GameObject: {fileID: 1324534496}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1693174314}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 222.5}
+  m_AnchoredPosition: {x: 0, y: 181}
   m_SizeDelta: {x: -1796, y: 272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1324534498
@@ -2244,6 +2291,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118c89514ccd5428baf819d2dd8c49c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1324534502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324534496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1324534501}
+          m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+          m_MethodName: OnHoverOverMe
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1324534501}
+          m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+          m_MethodName: OnUnHoverOverMe
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1344867389
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,7 +2436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da14a7dc7ad44c21a1ed1e0fe5a6fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedMax: 0.1
+  moveSpeedMax: 0.2
   minPauseTime: 0.5
   maxPauseTime: 2
   moveRadius: 0.5
@@ -2438,7 +2530,7 @@ Transform:
   m_GameObject: {fileID: 1441253739}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.66, y: -1.32, z: -32066.133}
+  m_LocalPosition: {x: 2.616381, y: -1.2828918, z: -32066.133}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2456,7 +2548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da14a7dc7ad44c21a1ed1e0fe5a6fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedMax: 0.1
+  moveSpeedMax: 0.2
   minPauseTime: 0.5
   maxPauseTime: 2
   moveRadius: 0.5
@@ -3056,7 +3148,7 @@ Transform:
   m_GameObject: {fileID: 1646849867}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.686538, y: -0.9823883, z: -32066.133}
+  m_LocalPosition: {x: 0.43291903, y: -3.16528, z: -32066.133}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3458,6 +3550,7 @@ GameObject:
   - component: {fileID: 1733865370}
   - component: {fileID: 1733865369}
   - component: {fileID: 1733865372}
+  - component: {fileID: 1733865373}
   m_Layer: 5
   m_Name: Button Settings
   m_TagString: Untagged
@@ -3474,14 +3567,14 @@ RectTransform:
   m_GameObject: {fileID: 1733865367}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1693174314}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -71}
+  m_AnchoredPosition: {x: 0.00012207031, y: -91}
   m_SizeDelta: {x: -1796, y: 272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1733865369
@@ -3590,6 +3683,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d22484802baf4b26a353fbf9104658e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1733865373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733865367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1733865372}
+          m_TargetAssemblyTypeName: buttonsettings, Assembly-CSharp
+          m_MethodName: OnHoverOverMe
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1733865372}
+          m_TargetAssemblyTypeName: buttonsettings, Assembly-CSharp
+          m_MethodName: OnUnHoverOverMe
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1739066358
 GameObject:
   m_ObjectHideFlags: 0
@@ -3747,14 +3885,14 @@ RectTransform:
   m_GameObject: {fileID: 1829101401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1693174314}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -327}
+  m_AnchoredPosition: {x: 0, y: -292.5}
   m_SizeDelta: {x: 2245, y: 585}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1829101403
@@ -3877,7 +4015,7 @@ Transform:
   m_GameObject: {fileID: 1916325630}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.3038273, y: -0.65286666, z: -32066.133}
+  m_LocalPosition: {x: 12.42, y: -0.61, z: -32066.133}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4046,7 +4184,7 @@ Transform:
   m_GameObject: {fileID: 1938980813}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.3038273, y: -0.65286666, z: -32066.133}
+  m_LocalPosition: {x: 6.5238276, y: -2.6428666, z: -32066.133}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4158,7 +4296,7 @@ Transform:
   m_GameObject: {fileID: 1965227593}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.143619, y: 0.11289173, z: -32066.133}
+  m_LocalPosition: {x: 0.933619, y: -2.1071084, z: -32066.133}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4270,7 +4408,7 @@ Transform:
   m_GameObject: {fileID: 1967771616}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.404787, y: 0.23965251, z: -32066.133}
+  m_LocalPosition: {x: 2.1511679, y: -1.9432392, z: -32066.133}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4455,7 +4593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da14a7dc7ad44c21a1ed1e0fe5a6fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedMax: 0.1
+  moveSpeedMax: 0.2
   minPauseTime: 0.5
   maxPauseTime: 2
   moveRadius: 0.5

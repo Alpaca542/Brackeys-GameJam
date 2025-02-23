@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class buttonsettings : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class buttonsettings : MonoBehaviour
     public void OpenSettings()
     {
         Debug.Log("setting button is clicked");
-        SceneManager.LoadScene("SettingsScene");
+        //SceneManager.LoadScene("SettingsScene");
     }
 
     // public void ExitGame()
@@ -23,4 +24,13 @@ public class buttonsettings : MonoBehaviour
     //     UnityEditor.EditorApplication.isPlaying = false;
     //     #endif
     // }
+    public void OnHoverOverMe()
+    {
+        GetComponent<RectTransform>().DOScale(new Vector3(1.06f, 1.06f, 1f), 0.5f);
+    }
+
+    public void OnUnHoverOverMe()
+    {
+        GetComponent<RectTransform>().DOScale(new Vector3(1f, 1f, 1f), 0.5f);
+    }
 }
