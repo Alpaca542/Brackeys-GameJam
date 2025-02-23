@@ -12,9 +12,11 @@ public class playerFollow : MonoBehaviour
     public GameObject myUI;
     public int speed;
     public GameObject transition;
+    public musicscript musicManager;
     void Start()
     {
         transition.transform.DOMove(new Vector3(93.6f, 2.2f, 0), 4f);
+        GameObject.FindGameObjectWithTag("musicManager").GetComponent<musicscript>().Up();
     }
     // Update is called once per frame
     void LateUpdate()
@@ -26,12 +28,14 @@ public class playerFollow : MonoBehaviour
     public void Lose()
     {
         transition.transform.DOMove(new Vector3(0f, 0f, 0), 4f);
-        Invoke(nameof(SceneTransWin), 1.4f);
+        GameObject.FindGameObjectWithTag("musicManager").GetComponent<musicscript>().Down();
+        Invoke(nameof(SceneTransWin), 4f);
     }
     public void Win()
     {
         transition.transform.DOMove(new Vector3(0f, 0f, 0), 4f);
-        Invoke(nameof(SceneTransWin), 1.4f);
+        GameObject.FindGameObjectWithTag("musicManager").GetComponent<musicscript>().Down();
+        Invoke(nameof(SceneTransWin), 4f);
     }
 
     public void SceneTransLose()

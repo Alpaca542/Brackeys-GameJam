@@ -31,6 +31,6 @@ public class buttonsettings : MonoBehaviour
 
     public void OnUnHoverOverMe()
     {
-        GetComponent<RectTransform>().DOScale(new Vector3(1f, 1f, 1f), 0.5f);
+        GetComponent<RectTransform>().DOScale(new Vector3(0.9f, 0.9f, 0.9f), 0.5f);
     }
 }
