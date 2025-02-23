@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Animation Main Menu.unity
     guid: b07b8864770a84bd3ba7ca8a97ae34aa
   - enabled: 1
-    path: Assets/Scenes/Customization.unity
-    guid: b1568f805db854beb85215a2f34f598a
-  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 369f071c30b284cc3bced42b857ad824
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 56d4e66472fec47988295820e33390a9
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

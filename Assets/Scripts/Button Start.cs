@@ -8,7 +8,7 @@ public class MenuButtons : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("start button is clicked");
-        transition.transform.DOMove(new Vector3(0, 0, 0), 2f);
+        transition.transform.DOMove(new Vector3(0, 0, 0), 4f);
         Invoke(nameof(lscene), 2f);
     }
     public void lscene()

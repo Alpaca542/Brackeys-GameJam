@@ -51,8 +51,16 @@ public class DialogueScript : MonoBehaviour
         coroutine = Type(WhatToType, WhatToShow, ShouldIStopAfter);
         StartCoroutine(coroutine);
     }
+    public void alldispoff()
+    {
+        foreach (GameObject gm in faces)
+        {
+            gm.SetActive(false);
+        }
+    }
     public IEnumerator Type(string WhatToType, GameObject WhatToShow, bool ShouldIStopAfter)
     {
+        alldispoff();
         Debug.Log(1);
         GetComponent<AudioSource>().loop = true;
         GetComponent<AudioSource>().Play();
@@ -75,17 +83,25 @@ public class DialogueScript : MonoBehaviour
         foreach (char letter1 in WhatToType.ToCharArray())
         {
             Display.text += letter1;
+            GetComponent<AudioSource>().loop = true;
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().Play();
+            }
             if (letter1 == ".".ToCharArray()[0] || letter1 == "!".ToCharArray()[0] || letter1 == "?".ToCharArray()[0])
             {
                 yield return new WaitForSecondsRealtime(0.8f);
+                GetComponent<AudioSource>().loop = false;
             }
             else if (letter1 == ",".ToCharArray()[0])
             {
                 yield return new WaitForSecondsRealtime(0.4f);
+                GetComponent<AudioSource>().loop = false;
             }
             else if (letter1 == " ".ToCharArray()[0])
             {
                 yield return new WaitForSecondsRealtime(0.08f);
+                GetComponent<AudioSource>().loop = false;
             }
             else
             {
@@ -160,36 +176,36 @@ public class DialogueScript : MonoBehaviour
     {
         cnv.SetActive(false);
     }
-    private void Update()
-    {
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) && cnv.activeSelf)
-        {
-            StopCoroutine(coroutine);
-            GetComponent<AudioSource>().loop = false;
-            if (Display.text == Stringpb)
-            {
-                if (ShouldIStopAfterpb)
-                {
-                    StopTyping();
-                }
-                else
-                {
-                    ContinueTyping();
-                }
-            }
-            else
-            {
-                if (ShouldIStopAfterpb)
-                {
-                    Display.text = Stringpb;
-                    btnContinueFake.SetActive(true);
-                }
-                else
-                {
-                    Display.text = sentences[IndexInMain];
-                    btnContinue.SetActive(true);
-                }
-            }
-        }
-    }
+    // private void Update()
+    // {
+    //     if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) && cnv.activeSelf)
+    //     {
+    //         StopCoroutine(coroutine);
+    //         GetComponent<AudioSource>().loop = false;
+    //         if (Display.text == Stringpb)
+    //         {
+    //             if (ShouldIStopAfterpb)
+    //             {
+    //                 StopTyping();
+    //             }
+    //             else
+    //             {
+    //                 ContinueTyping();
+    //             }
+    //         }
+    //         else
+    //         {
+    //             if (ShouldIStopAfterpb)
+    //             {
+    //                 Display.text = Stringpb;
+    //                 btnContinueFake.SetActive(true);
+    //             }
+    //             else
+    //             {
+    //                 Display.text = sentences[IndexInMain];
+    //                 btnContinue.SetActive(true);
+    //             }
+    //         }
+    //     }
+    // }
 }

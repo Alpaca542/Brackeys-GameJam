@@ -82,7 +82,8 @@ public class Player : MonoBehaviour
         }
         if (damaged > 2)
         {
-            Destroy(gameObject);
+            Time.timeScale = 0.5f;
+            Camera.main.GetComponent<playerFollow>().Lose();
         }
     }
 
