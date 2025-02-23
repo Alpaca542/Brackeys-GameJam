@@ -176,36 +176,23 @@ public class DialogueScript : MonoBehaviour
     {
         cnv.SetActive(false);
     }
-    // private void Update()
-    // {
-    //     if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) && cnv.activeSelf)
-    //     {
-    //         StopCoroutine(coroutine);
-    //         GetComponent<AudioSource>().loop = false;
-    //         if (Display.text == Stringpb)
-    //         {
-    //             if (ShouldIStopAfterpb)
-    //             {
-    //                 StopTyping();
-    //             }
-    //             else
-    //             {
-    //                 ContinueTyping();
-    //             }
-    //         }
-    //         else
-    //         {
-    //             if (ShouldIStopAfterpb)
-    //             {
-    //                 Display.text = Stringpb;
-    //                 btnContinueFake.SetActive(true);
-    //             }
-    //             else
-    //             {
-    //                 Display.text = sentences[IndexInMain];
-    //                 btnContinue.SetActive(true);
-    //             }
-    //         }
-    //     }
-    // }
+
+    private void Update()
+    {
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) && cnv.activeSelf)
+        {
+            StopCoroutine(coroutine);
+            GetComponent<AudioSource>().loop = false;
+            if (ShouldIStopAfterpb)
+            {
+                Display.text = Stringpb;
+                btnContinueFake.SetActive(true);
+            }
+            else
+            {
+                Display.text = sentences[IndexInMain];
+                btnContinue.SetActive(true);
+            }
+        }
+    }
 }
